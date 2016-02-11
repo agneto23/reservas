@@ -105,10 +105,10 @@
                         <li><a class="ajax-link" href="gallery.html"><i class="glyphicon glyphicon-picture"></i><span> Escala</span></a>
                         </li>
                         </li>
-                        <li><a class="ajax-link" href="gallery.html"><i class="glyphicon glyphicon-picture"></i><span> Aeropuerto</span></a>
+                        <li><a class="ajax-link" href="aeropuerto.php"><i class="glyphicon glyphicon-picture"></i><span> Aeropuerto</span></a>
                         </li>
                         </li>
-                        <li><a class="ajax-link" href="gallery.html"><i class="glyphicon glyphicon-picture"></i><span> Clase</span></a>
+                        <li><a class="ajax-link" href="clase.php"><i class="glyphicon glyphicon-picture"></i><span> Clase</span></a>
                         </li>
                     </ul>
                 </div>
