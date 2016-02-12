@@ -15,16 +15,17 @@
         <table class="table">
           <thead>
             <tr>
-              <th>id</th>
+              <th>Codigo</th>
               <th>Nombre</th>
               <th>Ciudad</th>
+              <th>Estado</th>
             </tr>
           </thead>
           <tbody>
             <?php
             require("../baseDatos/Conexion.php");
             $con = Conectar();
-            $sql = "SELECT aer_id, aer_nombre, aer_ciudad FROM aeropuerto";
+            $sql = "SELECT * FROM aeropuerto";
             $stmt = $con->prepare($sql);
             $result = $stmt->execute();
             $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
@@ -34,6 +35,7 @@
                 <td><?php print($row->aer_id); ?></td>
                 <td><?php print($row->aer_nombre); ?></td>
                 <td><?php print($row->aer_ciudad); ?></td>
+                <td><?php print($row->aer_estadoLog); ?></td>
                 <td>
                   <div class="btn-group">
                     <button type="button" class="btn btn-danger btn-xs">Seleccione</button>
@@ -42,7 +44,7 @@
                     </button>
                     <ul class="dropdown-menu" role="menu">
                       <li><a onclick="Eliminar_Aeropuerto('<?php print($row->aer_id); ?>');">Eliminar</a></li>
-                      <li><a onclick="Editar('<?php print($row->aer_id); ?>','<?php print($row->aer_nombre); ?>','<?php print($row->aer_ciudad);?>');">Actualizar</a></li>
+                      <li><a onclick="Editar('<?php print($row->aer_id); ?>','<?php print($row->aer_nombre); ?>','<?php print($row->aer_ciudad);?>','<?php print($row->aer_estadoLog);?>');">Actualizar</a></li>
                     </ul>
                   </div>
                 </td>
@@ -72,11 +74,19 @@
                   <label>Ciudad</label>
                   <input name="ciudad" class="form-control" required>
                 </div>
+
+                <div class="form-group">
+                  <label>Estado</label>
+                  <SELECT NAME="estado" class="form-control"> 
+                  <OPTION VALUE="T">Activo</OPTION>
+                  <OPTION VALUE="F">Inactivo</OPTION>
+                  </SELECT>
+                </div>
                 
               </div>
               
             </form>
-            <div class="modal-footer">s
+            <div class="modal-footer">
               <button type="button" class="btn btn-info" onClick="Registrar_Aeropuerto(aer_id,accion); return false">
                   <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
               </button>
@@ -96,13 +106,15 @@
       accion = 'N';
       document.frmAeropuerto.nombre.value = "";
       document.frmAeropuerto.ciudad.value = "";
+      document.frmAeropuerto.estado.value = "";
       $('#modal').modal('show');
     }
-    function Editar(id, nombre, ciudad){
+    function Editar(id, nombre, ciudad,estado){
       accion = 'E';
       aer_id = id;
       document.frmAeropuerto.nombre.value = nombre;
       document.frmAeropuerto.ciudad.value = ciudad;
+      document.frmAeropuerto.estado.value = estado;
       $('#modal').modal('show');
     }
 

@@ -24,6 +24,7 @@ function objetoAjax(){
 function Registrar_Aeropuerto(aer_id, accion){
 nombre = document.frmAeropuerto.nombre.value;
 ciudad = document.frmAeropuerto.ciudad.value;
+estado = document.frmAeropuerto.estado.value;
 
 ajax = objetoAjax();
 if(accion=='N'){
@@ -39,7 +40,7 @@ ajax.onreadystatechange=function() {
 	}
 
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-ajax.send("aer_id="+aer_id+"&aer_nombre="+nombre+"&aer_ciudad="+ciudad)
+ajax.send("aer_id="+aer_id+"&aer_nombre="+nombre+"&aer_ciudad="+ciudad+"&aer_estadoLog="+estado)
 }
 
 function Eliminar_Aeropuerto(aer_id){
