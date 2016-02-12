@@ -91,6 +91,7 @@
 
     <script type="text/javascript">
     var accion;
+    var aer_id;
     function Nuevo(){
       accion = 'N';
       document.frmAeropuerto.nombre.value = "";
@@ -99,6 +100,7 @@
     }
     function Editar(id, nombre, ciudad){
       accion = 'E';
+      aer_id = id;
       document.frmAeropuerto.nombre.value = nombre;
       document.frmAeropuerto.ciudad.value = ciudad;
       $('#modal').modal('show');

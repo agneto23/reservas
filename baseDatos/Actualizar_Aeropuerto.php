@@ -10,9 +10,9 @@ $aer_ciudad = $_POST['aer_ciudad'];
 require('Conexion.php');
 
 $con = Conectar();
-$sql = 'INSERT INTO aeropuerto (aer_nombre, aer_ciudad) VALUES (:nombre, :ciudad)';
+$sql = 'UPDATE aeropuerto SET aer_nombre=:nombre, aer_ciudad=:ciudad WHERE aer_id=:id';
 $q = $con->prepare($sql);
 
-$q->execute(array(':nombre'=>$aer_nombre, ':ciudad'=>$aer_ciudad));
+$q->execute(array(':nombre'=>$aer_nombre, ':ciudad'=>$aer_ciudad, ':id'=>$aer_id));
 
 ?>
