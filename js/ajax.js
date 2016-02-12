@@ -59,3 +59,27 @@ ajax.send("aer_id="+aer_id)
   //Sin acciones
 }
 }
+
+
+function Registrar_Avion(avi_id, accion){
+asiento = document.frmAeropuerto.asiento.value;
+aerolinea = document.frmAeropuerto.aerolinea.value;
+estado = document.frmAeropuerto.estado.value;
+aeropuerto = document.frmAeropuerto.aeropuerto.value;
+
+ajax = objetoAjax();
+if(accion=='N'){
+ajax.open("POST", "../baseDatos/Registrar_Avion.php", true);
+}else if(accion=='E'){
+ajax.open("POST", "../baseDatos/Actualizar_Avion.php", true);
+}
+ajax.onreadystatechange=function() {
+		if (ajax.readyState==4) {
+			alert('Los datos fueron guardados con exito!');
+      window.location.reload(true);
+		}
+	}
+
+ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+ajax.send("avi_id="+avi_id+"&avi_asientos="+asiento+"&avi_aerolinea="+aerolinea+"&avi_estadoLog="+estado+"&aer_id="+aeropuerto)
+}
