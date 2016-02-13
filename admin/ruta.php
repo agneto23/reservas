@@ -86,12 +86,16 @@
               <div class="col-lg-12">
                 <div class="form-group"><br>
                   <label>Ciudad De Origen</label>
-                  <input name="ciudadOrigenC" class="form-control" required>
+                  <input type="text" class="input-medium search-query form-control" name="ciudadOrigenC" placeholder="Ciudad Origen" id="ciudadOrigenC" autocomplete="off" onKeyUp="buscar('1');" />
+                   <ul id="resultadoBusquedaOrigen" class="list-unstyled press"></ul>
+                   <input type="hidden" name="ciudadOrigenC1"  id="ciudadOrigenC1" />
                 </div>
 
                 <div class="form-group">
                   <label>Ciudad de Destino</label>
-                  <input name="ciudadDestinoC" class="form-control" required>
+                   <input type="text" class="input-medium search-query form-control" name="ciudadDestinoC" placeholder="Ciudad Destino" id="ciudadDestinoC" autocomplete="off" onKeyUp="buscar('2');" />
+                   <ul id="resultadoBusquedaDestino" class="list-unstyled press"></ul>
+                   <input type="hidden" name="ciudadDestinoC1"  id="ciudadDestinoC1" />
                 </div>
 
                 <div class="form-group">
@@ -106,7 +110,7 @@
               
             </form>
             <div class="modal-footer">
-              <button type="button" class="btn btn-info" onClick="Registrar_Aeropuerto(rut_id,accion); return false">
+              <button type="button" class="btn btn-info" onClick="Registrar_Ruta(rut_id,accion); return false">
                   <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
               </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancel</button>
@@ -121,8 +125,10 @@
     <script type="text/javascript">
     var accion;
     var rut_id;
+    var OrigenDestino;
     function Nuevo(){
       accion = 'N';
+      rut_id = id;
       document.frmRuta.ciudadOrigenC.value = "";
       document.frmRuta.ciudadDestinoC.value = "";
       document.frmRuta.estado.value = "";
@@ -137,4 +143,45 @@
       $('#modal').modal('show');
     }
 
+    function buscar(OD) 
+    {
+        OrigenDestino=OD;
+        if(OrigenDestino=="1"){
+        var textoBusqueda = $("input#ciudadOrigenC").val();
+
+        if (textoBusqueda != "") {
+            $.post("buscarCiudadRuta.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+              $("#resultadoBusquedaOrigen").html(mensaje);
+            }); 
+        } else { 
+            $("#resultadoBusquedaOrigen").html("");
+      };
+    };
+
+    if(OrigenDestino=="2"){
+        var textoBusqueda = $("input#ciudadDestinoC").val();
+
+        if (textoBusqueda != "") {
+            $.post("buscarCiudadRuta.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+              $("#resultadoBusquedaDestino").html(mensaje);
+            }); 
+        } else { 
+            $("#resultadoBusquedaDestino").html("");
+      };
+    };
+  };
+    function valor(valor) 
+    {
+
+      if(OrigenDestino=="1"){
+        document.frmRuta.ciudadOrigenC.value = valor;
+        document.frmRuta.ciudadOrigenC1.value = $("#"+valor).val();
+        $("#resultadoBusquedaOrigen").html("");
+        }
+        if(OrigenDestino=="2"){
+        document.frmRuta.ciudadDestinoC.value = valor;
+        document.frmRuta.ciudadDestinoC1.value = $("#"+valor).val();
+        $("#resultadoBusquedaDestino").html("");
+        }
+    }
     </script>
