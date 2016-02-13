@@ -135,6 +135,7 @@
       document.frmAeropuerto.estado.value = "";
       document.frmAeropuerto.aeropuerto.value = "";
       document.frmAeropuerto.aeropuerto1.value = "";
+      $("#resultadoBusqueda").html("");
 
       $('#modal').modal('show');
     }
