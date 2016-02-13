@@ -16,10 +16,15 @@
           <thead>
             <tr>
               <th>Codigo</th>
-              <th>Asientos</th>
-              <th>Aerolinea</th>
+              <th>Fecha Llegada</th>
+              <th>Fecha Salida</th>
+              <th>Hora Llegada</th>
+              <th>Hora Salida</th>
+              <th>Tipo</th>
+              <th>Visa</th>
               <th>Estado</th>
-              <th>Aeropuerto</th>
+              <th>Ruta</th>
+              <th>Avion</th>
             </tr>
           </thead>
           <tbody>
@@ -33,11 +38,16 @@
             foreach($rows as $row){
               ?>
               <tr>
+                <td><?php print($row->vue_id); ?></td>
+                <td><?php print($row->vue_fechaVLlegada); ?></td>
+                <td><?php print($row->vue_fechaVSalida); ?></td>
+                <td><?php print($row->vue_horaVLlegada); ?></td>
+                <td><?php print($row->vue_horaVSalida); ?></td>
+                <td><?php print($row->vue_tipo); ?></td>
+                <td><?php print($row->vue_visa); ?></td>
+                <td><?php print($row->vue_estadoLog); ?></td>
+                <td><?php print($row->rut_id); ?></td>
                 <td><?php print($row->avi_id); ?></td>
-                <td><?php print($row->avi_asientos); ?></td>
-                <td><?php print($row->avi_aerolinea); ?></td>
-                <td><?php print($row->avi_estadoLog); ?></td>
-                <td><?php print($row->aer_id); ?></td>
                 <td>
                   <div class="btn-group">
                     <button type="button" class="btn btn-danger btn-xs">Seleccione</button>
@@ -45,7 +55,7 @@
                       <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a onclick="Editar('<?php print($row->avi_id); ?>','<?php print($row->avi_asientos); ?>','<?php print($row->avi_aerolinea);?>','<?php print($row->avi_estadoLog);?>','<?php print($row->aer_id);?>');">Actualizar</a></li>
+                      <li><a onclick="Editar('<?php print($row->vue_id); ?>','<?php print($row->vue_fechaVLlegada); ?>','<?php print($row->vue_fechaVSalida);?>','<?php print($row->vue_horaVLlegada);?>','<?php print($row->vue_horaVSalida);?>','<?php print($row->vue_tipo);?>','<?php print($row->vue_visa);?>','<?php print($row->vue_estadoLog);?>','<?php print($row->rut_id);?>','<?php print($row->avi_id);?>');">Actualizar</a></li>
                     </ul>
                   </div>
                 </td>
@@ -62,26 +72,22 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <div class="modal-title" > Aeropuerto</div>
+              <div class="modal-title">Vuelo</div>
             </div>
             <form role="form" action="" name="frmAeropuerto">
               <div class="col-lg-12">
                 <div class="form-group"><br>
-                  <label>Asientos</label>
-                  <input name="asiento" class="form-control" required>
+                  <label>Fecha Llegada</label>
+                 <input type="date" name="fllegada" class="form-control" required>
                 </div>
-
                 <div class="form-group">
-                  <label>Aerolinea</label>
-                  <input name="aerolinea" class="form-control" required>
+                  <label>Fecha Salida</label>
+                  <input type="time" name="fsalida" class="form-control" required>
                 </div>
 
                 <div class="form-group">
                   <label>Estado</label>
-                  <SELECT NAME="estado" class="form-control"> 
-                  <OPTION VALUE="T">Activo</OPTION>
-                  <OPTION VALUE="F">Inactivo</OPTION>
-                  </SELECT>
+                  <input name="abre" type="text" class="form-control" id="datetimepicker2">
                 </div>
 
                 <div class="form-group">
@@ -130,11 +136,7 @@
     var avi_id;
     function Nuevo(){
       accion = 'N';
-      document.frmAeropuerto.asiento.value = "";
-      document.frmAeropuerto.aerolinea.value = "";
-      document.frmAeropuerto.estado.value = "";
-      document.frmAeropuerto.aeropuerto.value = "";
-      document.frmAeropuerto.aeropuerto1.value = "";
+      
       $("#resultadoBusqueda").html("");
 
       $('#modal').modal('show');
@@ -172,5 +174,19 @@
         
     }
 
+
+    $(function() {
+    $('#datetimepicker2').datetimepicker({
+     format: 'hh:ii',
+     startView: 'hour'
+
+    });
+    
+    $('#datetimepicker3').datetimepicker({
+     format: 'hh:ii'
+    });
+    
+    
+    });
 
     </script>
