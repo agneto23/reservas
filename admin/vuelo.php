@@ -176,7 +176,7 @@
         var textoBusqueda = $("input#ruta").val();
 
         if (textoBusqueda != "") {
-            $.post("buscarCiudadRuta.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+            $.post("buscarRuta.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
               $("#resultadoBusqueda1").html(mensaje);
             }); 
         } else { 
@@ -198,15 +198,15 @@
       };
     };
 
-    function valor(valor) 
+    function valor2(valor) 
     {
         document.frmAeropuerto.ruta.value = valor;
         document.frmAeropuerto.ruta1.value = $("#"+valor).val();
-        $("#resultadoBusqueda2").html("");
+        $("#resultadoBusqueda1").html("");
         
     }
 
-    function valor2(valor) 
+    function valor(valor) 
     {
         document.frmAeropuerto.avion.value = valor;
         document.frmAeropuerto.avion1.value = $("#"+valor).val();
