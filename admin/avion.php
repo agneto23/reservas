@@ -146,7 +146,9 @@
       document.frmAeropuerto.aerolinea.value = aerolinea;
       document.frmAeropuerto.estado.value = estado;
       document.frmAeropuerto.aeropuerto.value = aeropuerto;
+      document.frmAeropuerto.aeropuerto1.value = aeropuerto;
       $('#modal').modal('show');
+      $("#resultadoBusqueda").html("");
     }
 
 

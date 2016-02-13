@@ -146,6 +146,8 @@
       document.frmRuta.ciudadOrigenC1.value = ciudadOrigen;
       document.frmRuta.ciudadDestinoC1.value = ciudadDestino;
       document.frmRuta.estado.value = estado;
+      $("#resultadoBusquedaOrigen").html("");
+      $("#resultadoBusquedaDestino").html("");
       $('#modal').modal('show');
     }
 
