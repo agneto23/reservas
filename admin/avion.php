@@ -37,16 +37,24 @@
                 <td><?php print($row->avi_asientos); ?></td>
                 <td><?php print($row->avi_aerolinea); ?></td>
                 <td><?php print($row->avi_estadoLog); ?></td>
-                <td><?php print($row->aer_id); ?></td>
+
+                 <?php
+                $sql2 = "SELECT * FROM Aeropuerto where aer_id=:aer_ids";
+                $stmt2 = $con->prepare($sql2);
+                $result2 = $stmt2->execute(array(':aer_ids'=>($row->aer_id)));
+                $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+                foreach($rows2 as $row2){
+                ?>
+                <td><?php print($row2->aer_nombre); $nombre_aeropuero=$row2->aer_nombre; ?></td>
+                <?php
+                }
+                ?>
+
                 <td>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-danger btn-xs">Seleccione</button>
-                    <button type="button" class="btn btn-danger btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a onclick="Editar('<?php print($row->avi_id); ?>','<?php print($row->avi_asientos); ?>','<?php print($row->avi_aerolinea);?>','<?php print($row->avi_estadoLog);?>','<?php print($row->aer_id);?>');">Actualizar</a></li>
-                    </ul>
+                    <button type="button" class="btn btn-info" onclick="Editar('<?php print($row->avi_id); ?>','<?php print($row->avi_asientos); ?>','<?php print($row->avi_aerolinea);?>','<?php print($row->avi_estadoLog);?>','<?php print($nombre_aeropuero);?>','<?php print($row->aer_id);?>');">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
+                    </button>   
                   </div>
                 </td>
               </tr>
