@@ -42,7 +42,7 @@
                 $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
                 foreach($rows2 as $row2){
                 ?>
-                <td><?php print($row2->aer_ciudad); ?></td>
+                <td><?php print($row2->aer_ciudad); $ciudadOrigenAer=$row2->aer_ciudad; ?></td>
                 <?php
                 }
                 ?>
@@ -54,7 +54,7 @@
                 $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
                 foreach($rows2 as $row2){
                 ?>
-                <td><?php print($row2->aer_ciudad); ?></td>
+                <td><?php print($row2->aer_ciudad); $ciudadDestinoAer=$row2->aer_ciudad; ?></td>
                 <?php
                 }
                 ?>
@@ -62,7 +62,7 @@
                 <td><?php print($row->rut_estadoLog); ?></td>
                 <td>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-info" onClick="Editar('<?php print($row->rut_id); ?>','<?php print($row->aer_id_origen); ?>','<?php print($row->aer_id_destino); ?>','<?php print($row->rut_estadoLog);?>');">
+                    <button type="button" class="btn btn-info" onClick="Editar('<?php print($row->rut_id); ?>','<?php print($row->aer_id_origen); ?>','<?php print($ciudadOrigenAer); ?>','<?php print($row->aer_id_destino); ?>','<?php print($ciudadDestinoAer); ?>','<?php print($row->rut_estadoLog);?>');">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
                     </button>                    
                   </div>
@@ -138,13 +138,13 @@
       $("#resultadoBusquedaDestino").html("");
       $('#modal').modal('show');
     }
-    function Editar(id, ciudadOrigen, ciudadDestino,estado){
+    function Editar(id, idciudadOrigen,ciudadOrigen, idciudadDestino,ciudadDestino,estado){
       accion = 'E';
       rut_id = id;
       document.frmRuta.ciudadOrigenC.value = ciudadOrigen;
       document.frmRuta.ciudadDestinoC.value = ciudadDestino;
-      document.frmRuta.ciudadOrigenC1.value = ciudadOrigen;
-      document.frmRuta.ciudadDestinoC1.value = ciudadDestino;
+      document.frmRuta.ciudadOrigenC1.value = idciudadOrigen;
+      document.frmRuta.ciudadDestinoC1.value = idciudadDestino;
       document.frmRuta.estado.value = estado;
       $("#resultadoBusquedaOrigen").html("");
       $("#resultadoBusquedaDestino").html("");
@@ -153,10 +153,10 @@
 
     function buscar(OD) 
     {
+      var textoBusqueda;
         OrigenDestino=OD;
         if(OrigenDestino=="1"){
-        var textoBusqueda = $("input#ciudadOrigenC").val();
-
+        textoBusqueda = $("input#ciudadOrigenC").val();
         if (textoBusqueda != "") {
             $.post("buscarCiudadRuta.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
               $("#resultadoBusquedaOrigen").html(mensaje);
@@ -167,7 +167,7 @@
     };
 
     if(OrigenDestino=="2"){
-        var textoBusqueda = $("input#ciudadDestinoC").val();
+        textoBusqueda = $("input#ciudadDestinoC").val();
 
         if (textoBusqueda != "") {
             $.post("buscarCiudadRuta.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
@@ -180,7 +180,6 @@
   };
     function valor(valor) 
     {
-
       if(OrigenDestino=="1"){
         document.frmRuta.ciudadOrigenC.value = valor;
         document.frmRuta.ciudadOrigenC1.value = $("#"+valor).val();

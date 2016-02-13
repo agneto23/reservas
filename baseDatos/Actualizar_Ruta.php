@@ -16,6 +16,6 @@ $con = Conectar();
 $sql = 'UPDATE ruta SET rut_estadoLog=:estado, aer_id_origen=:origen, aer_id_destino=:destino WHERE rut_id=:id';
 $q = $con->prepare($sql);
 
-$q->execute(array(':origen'=>$aer_id_origen, ':destino'=>$aer_id_destino, ':id'=>$rut_id, ':estado'=>$rut_estadoLog));
+$q->execute(array(':estado'=>$rut_estadoLog,':origen'=>$aer_id_origen, ':destino'=>$aer_id_destino, ':id'=>$rut_id));
 
 ?>

@@ -22,7 +22,7 @@
 
 
 
-	$consulta = mysqli_query($conexion, "select * from aeropuerto where  aer_ciudad like '%$consultaBusqueda%'");
+	$consulta = mysqli_query($conexion, "select * from aeropuerto where  aer_ciudad like '%$consultaBusqueda%' and aer_estadoLog = 'T'" );
 
 		//Obtiene la cantidad de filas que hay en la consulta
 	$filas = mysqli_num_rows($consulta);

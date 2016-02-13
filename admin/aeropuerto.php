@@ -38,14 +38,9 @@
                 <td><?php print($row->aer_estadoLog); ?></td>
                 <td>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-danger btn-xs">Seleccione</button>
-                    <button type="button" class="btn btn-danger btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a onclick="Eliminar_Aeropuerto('<?php print($row->aer_id); ?>');">Eliminar</a></li>
-                      <li><a onclick="Editar('<?php print($row->aer_id); ?>','<?php print($row->aer_nombre); ?>','<?php print($row->aer_ciudad);?>','<?php print($row->aer_estadoLog);?>');">Actualizar</a></li>
-                    </ul>
+                    <button type="button" class="btn btn-info" onclick="Editar('<?php print($row->aer_id); ?>','<?php print($row->aer_nombre); ?>','<?php print($row->aer_ciudad);?>','<?php print($row->aer_estadoLog);?>');">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
+                    </button> 
                   </div>
                 </td>
               </tr>
