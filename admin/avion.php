@@ -103,8 +103,9 @@
                   ?>
                   </SELECT>-->
 
-                  <input type="text" class="input-medium search-query form-control" name="aeropuerto" placeholder="busqueda por hueca" id="aeropuerto" autocomplete="off" onKeyUp="buscar();" />
+                  <input type="text" class="input-medium search-query form-control" name="aeropuerto" placeholder="Aeropuerto" id="aeropuerto" autocomplete="off" onKeyUp="buscar();" />
                    <ul id="resultadoBusqueda" class="list-unstyled press"></ul>
+                   <input type="hidden" name="aeropuerto1"  id="aeropuerto1" />
 
                 </div>
                 
@@ -132,6 +133,8 @@
       document.frmAeropuerto.asiento.value = "";
       document.frmAeropuerto.aerolinea.value = "";
       document.frmAeropuerto.estado.value = "";
+      document.frmAeropuerto.aeropuerto.value = "";
+      document.frmAeropuerto.aeropuerto1.value = "";
 
       $('#modal').modal('show');
     }
@@ -156,16 +159,15 @@
               $("#resultadoBusqueda").html(mensaje);
             }); 
         } else { 
-            ("#resultadoBusqueda").html('');
+            $("#resultadoBusqueda").html("");
       };
     };
 
     function valor(valor) 
     {
         document.frmAeropuerto.aeropuerto.value = valor;
-        
-        alert(valor.value);
-
+        document.frmAeropuerto.aeropuerto1.value = $("#"+valor).val();
+        $("#resultadoBusqueda").html("");
         
     }
 

@@ -65,7 +65,7 @@ function Registrar_Avion(avi_id, accion){
 asiento = document.frmAeropuerto.asiento.value;
 aerolinea = document.frmAeropuerto.aerolinea.value;
 estado = document.frmAeropuerto.estado.value;
-aeropuerto = document.frmAeropuerto.aeropuerto.value;
+aeropuerto = document.frmAeropuerto.aeropuerto1.value;
 
 ajax = objetoAjax();
 if(accion=='N'){
