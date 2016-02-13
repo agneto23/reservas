@@ -200,6 +200,14 @@
 
     function valor(valor) 
     {
+        document.frmAeropuerto.ruta.value = valor;
+        document.frmAeropuerto.ruta1.value = $("#"+valor).val();
+        $("#resultadoBusqueda2").html("");
+        
+    }
+
+    function valor2(valor) 
+    {
         document.frmAeropuerto.avion.value = valor;
         document.frmAeropuerto.avion1.value = $("#"+valor).val();
         $("#resultadoBusqueda2").html("");
