@@ -83,3 +83,25 @@ ajax.onreadystatechange=function() {
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 ajax.send("avi_id="+avi_id+"&avi_asientos="+asiento+"&avi_aerolinea="+aerolinea+"&avi_estadoLog="+estado+"&aer_id="+aeropuerto)
 }
+
+
+function Registrar_Ruta(rut_id, accion){
+ciudadOrigen = document.frmRuta.ciudadOrigenC1.value;
+ciudadDestino = document.frmRuta.ciudadDestinoC1.value;
+estado = document.frmRuta.estado.value;
+
+ajax = objetoAjax();
+if(accion=='N'){
+ajax.open("POST", "../baseDatos/Registrar_Ruta.php", true);
+}else if(accion=='E'){
+ajax.open("POST", "../baseDatos/Actualizar_Ruta.php", true);
+}
+ajax.onreadystatechange=function() {
+		if (ajax.readyState==4) {
+			alert('Los datos fueron guardados con exito!');
+      window.location.reload(true);
+		}
+	}
+ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+ajax.send("rut_id="+rut_id+"&rut_estadoLog="+estado+"&aer_id_origen="+ciudadOrigen+"&aer_id_destino="+ciudadDestino)
+}

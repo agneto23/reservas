@@ -62,7 +62,7 @@
                 <td><?php print($row->rut_estadoLog); ?></td>
                 <td>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-info" onClick="Editar('<?php print($row->aer_id_origen); ?>','<?php print($row->aer_id_destino); ?>','<?php print($row->rut_estadoLog);?>');">
+                    <button type="button" class="btn btn-info" onClick="Editar('<?php print($row->rut_id); ?>','<?php print($row->aer_id_origen); ?>','<?php print($row->aer_id_destino); ?>','<?php print($row->rut_estadoLog);?>');">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
                     </button>                    
                   </div>
@@ -128,10 +128,14 @@
     var OrigenDestino;
     function Nuevo(){
       accion = 'N';
-      rut_id = id;
+      
       document.frmRuta.ciudadOrigenC.value = "";
+      document.frmRuta.ciudadOrigenC1.value = "";
       document.frmRuta.ciudadDestinoC.value = "";
+      document.frmRuta.ciudadDestinoC1.value = "";
       document.frmRuta.estado.value = "";
+      $("#resultadoBusquedaOrigen").html("");
+      $("#resultadoBusquedaDestino").html("");
       $('#modal').modal('show');
     }
     function Editar(id, ciudadOrigen, ciudadDestino,estado){
@@ -139,6 +143,8 @@
       rut_id = id;
       document.frmRuta.ciudadOrigenC.value = ciudadOrigen;
       document.frmRuta.ciudadDestinoC.value = ciudadDestino;
+      document.frmRuta.ciudadOrigenC1.value = ciudadOrigen;
+      document.frmRuta.ciudadDestinoC1.value = ciudadDestino;
       document.frmRuta.estado.value = estado;
       $('#modal').modal('show');
     }

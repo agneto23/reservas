@@ -82,37 +82,55 @@
                 </div>
                 <div class="form-group">
                   <label>Fecha Salida</label>
-                  <input type="time" name="fsalida" class="form-control" required>
+                  <input type="date" name="fsalida" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Hora Llegada</label>
+                  <input name="hllegada" type="time" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Hora Salida</label>
+                  <input name="hsalida" type="time" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Tipo</label>
+                  <SELECT NAME="estado" class="form-control"> 
+                  <OPTION VALUE="D">Directo</OPTION>
+                  <OPTION VALUE="E">Escala</OPTION>
+                  </SELECT>
+                </div>
+
+                <div class="form-group">
+                  <label>Visa</label>
+                  <SELECT NAME="estado" class="form-control"> 
+                  <OPTION VALUE="S">Si</OPTION>
+                  <OPTION VALUE="N">No</OPTION>
+                  </SELECT>
                 </div>
 
                 <div class="form-group">
                   <label>Estado</label>
-                  <input name="abre" type="text" class="form-control" id="datetimepicker2">
+                  <SELECT NAME="estado" class="form-control"> 
+                  <OPTION VALUE="T">Activo</OPTION>
+                  <OPTION VALUE="F">Inactivo</OPTION>
+                  </SELECT>
                 </div>
 
                 <div class="form-group">
-                  <label>Aeropuerto</label>
-                  <!--<SELECT NAME="aeropuerto" class="form-control"> 
-                  <?php
-                
-                  $con1 = Conectar();
-                  $sql1 = "SELECT aer_id,aer_nombre FROM aeropuerto";
-                  $stmt1 = $con->prepare($sql1);
-                  $result1 = $stmt1->execute();
-                  $rows1 = $stmt1->fetchAll(\PDO::FETCH_OBJ);
-                  foreach($rows1 as $row){
-                    ?>  
-                  <OPTION VALUE="<?php print($row->aer_id); ?>"><?php print($row->aer_nombre); ?></OPTION>
-                 
-                  <?php
-                  }
-                  ?>
-                  </SELECT>-->
+                  <label>Ruta</label>
+                  <input type="text" class="input-medium search-query form-control" name="ruta" placeholder="Ruta" id="ruta" autocomplete="off" onKeyUp="buscar();" />
+                   <ul id="resultadoBusqueda1" class="list-unstyled press"></ul>
+                   <input type="hidden" name="ruta1"  id="ruta1"/>
+                </div>
 
-                  <input type="text" class="input-medium search-query form-control" name="aeropuerto" placeholder="Aeropuerto" id="aeropuerto" autocomplete="off" onKeyUp="buscar();" />
-                   <ul id="resultadoBusqueda" class="list-unstyled press"></ul>
-                   <input type="hidden" name="aeropuerto1"  id="aeropuerto1" />
-
+                <div class="form-group">
+                  <label>Avion</label>
+                  <input type="text" class="input-medium search-query form-control" name="avion" placeholder="Avion" id="avion" autocomplete="off" onKeyUp="buscar2();" />
+                   <ul id="resultadoBusqueda2" class="list-unstyled press"></ul>
+                   <input type="hidden" name="avion1"  id="avion1" />
                 </div>
                 
               </div>
@@ -155,22 +173,36 @@
 
     function buscar() 
     {
-        var textoBusqueda = $("input#aeropuerto").val();
+        var textoBusqueda = $("input#ruta").val();
 
         if (textoBusqueda != "") {
-            $.post("buscar.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
-              $("#resultadoBusqueda").html(mensaje);
+            $.post("buscarCiudadRuta.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+              $("#resultadoBusqueda1").html(mensaje);
             }); 
         } else { 
-            $("#resultadoBusqueda").html("");
+            $("#resultadoBusqueda1").html("");
+      };
+    };
+
+
+    function buscar2() 
+    {
+        var textoBusqueda = $("input#avion").val();
+
+        if (textoBusqueda != "") {
+            $.post("buscarAvion.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+              $("#resultadoBusqueda2").html(mensaje);
+            }); 
+        } else { 
+            $("#resultadoBusqueda2").html("");
       };
     };
 
     function valor(valor) 
     {
-        document.frmAeropuerto.aeropuerto.value = valor;
-        document.frmAeropuerto.aeropuerto1.value = $("#"+valor).val();
-        $("#resultadoBusqueda").html("");
+        document.frmAeropuerto.avion.value = valor;
+        document.frmAeropuerto.avion1.value = $("#"+valor).val();
+        $("#resultadoBusqueda2").html("");
         
     }
 
@@ -182,9 +214,7 @@
 
     });
     
-    $('#datetimepicker3').datetimepicker({
-     format: 'hh:ii'
-    });
+   
     
     
     });

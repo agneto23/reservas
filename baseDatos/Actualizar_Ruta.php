@@ -1,20 +1,21 @@
 <?php
 
-$aer_id = $_POST['aer_id'];
 
-$aer_nombre = $_POST['aer_nombre'];
+$rut_id = $_POST['rut_id'];
 
-$aer_ciudad = $_POST['aer_ciudad'];
+$rut_estadoLog = $_POST['rut_estadoLog'];
 
-$aer_estadoLog = $_POST['aer_estadoLog'];
+$aer_id_origen = $_POST['aer_id_origen'];
+
+$aer_id_destino = $_POST['aer_id_destino'];
 
 
 require('Conexion.php');
 
 $con = Conectar();
-$sql = 'UPDATE aeropuerto SET aer_nombre=:nombre, aer_ciudad=:ciudad, aer_estadoLog=:estado WHERE aer_id=:id';
+$sql = 'UPDATE ruta SET rut_estadoLog=:estado, aer_id_origen=:origen, aer_id_destino=:destino WHERE rut_id=:id';
 $q = $con->prepare($sql);
 
-$q->execute(array(':nombre'=>$aer_nombre, ':ciudad'=>$aer_ciudad, ':id'=>$aer_id, ':estado'=>$aer_estadoLog));
+$q->execute(array(':origen'=>$aer_id_origen, ':destino'=>$aer_id_destino, ':id'=>$rut_id, ':estado'=>$rut_estadoLog));
 
 ?>
