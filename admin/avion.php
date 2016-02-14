@@ -81,7 +81,11 @@
 
                 <div class="form-group">
                   <label>Aerolinea</label>
-                  <input name="aerolinea" class="form-control" required>
+                  <SELECT NAME="aerolinea" class="form-control"> 
+                  <OPTION VALUE="Tame">Tame</OPTION>
+                  <OPTION VALUE="Avianca">Avianca</OPTION>
+                  <OPTION VALUE="Lan">LAN</OPTION>
+                  </SELECT>
                 </div>
 
                 <div class="form-group">

@@ -16,10 +16,10 @@
           <thead>
             <tr>
               <th>Codigo</th>
-              <th>Fecha Llegada</th>
               <th>Fecha Salida</th>
-              <th>Hora Llegada</th>
+              <th>Fecha Llegada</th>
               <th>Hora Salida</th>
+              <th>Hora Llegada</th>
               <th>Tipo</th>
               <th>Visa</th>
               <th>Estado</th>
@@ -39,10 +39,10 @@
               ?>
               <tr>
                 <td><?php print($row->vue_id); ?></td>
-                <td><?php print($row->vue_fechaVLlegada); ?></td>
                 <td><?php print($row->vue_fechaVSalida); ?></td>
-                <td><?php print($row->vue_horaVLlegada); ?></td>
+                <td><?php print($row->vue_fechaVLlegada); ?></td>
                 <td><?php print($row->vue_horaVSalida); ?></td>
+                <td><?php print($row->vue_horaVLlegada); ?></td>
                 <td><?php print($row->vue_tipo); ?></td>
                 <td><?php print($row->vue_visa); ?></td>
                 <td><?php print($row->vue_estadoLog); ?></td>
@@ -72,23 +72,22 @@
             </div>
             <form role="form" action="" name="frmVuelo">
               <div class="col-lg-12">
+
+              <div class="form-group">
+                  <label>Fecha Salida</label>
+                  <input type="date" name="fsalida" class="form-control" required>
+                </div>
                 <div class="form-group"><br>
                   <label>Fecha Llegada</label>
                  <input type="date" name="fllegada" class="form-control" required>
                 </div>
                 <div class="form-group">
-                  <label>Fecha Salida</label>
-                  <input type="date" name="fsalida" class="form-control" required>
+                  <label>Hora Salida</label>
+                  <input name="hsalida" type="time" class="form-control" required>
                 </div>
-
                 <div class="form-group">
                   <label>Hora Llegada</label>
                   <input name="hllegada" type="time" class="form-control" required>
-                </div>
-
-                <div class="form-group">
-                  <label>Hora Salida</label>
-                  <input name="hsalida" type="time" class="form-control" required>
                 </div>
 
                 <div class="form-group">
