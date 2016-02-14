@@ -46,11 +46,53 @@
                 <td><?php print($row->vue_tipo); ?></td>
                 <td><?php print($row->vue_visa); ?></td>
                 <td><?php print($row->vue_estadoLog); ?></td>
-                <td><?php print($row->rut_id); ?></td>
-                <td><?php print($row->avi_id); ?></td>
+                
+                <?php
+                $sql2 = "SELECT * FROM ruta where rut_id=:rut_ids";
+                $stmt2 = $con->prepare($sql2);
+                $result2 = $stmt2->execute(array(':rut_ids'=>($row->rut_id)));
+                $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+                foreach($rows2 as $row2){
+                  $rutaOrigen=$row2->aer_id_origen;
+                  $rutaDestino=$row2->aer_id_destino;
+                }
+                ?>
+
+                <?php
+                $sql2 = "SELECT * FROM aeropuerto where aer_id=:aer_ids";
+                $stmt2 = $con->prepare($sql2);
+                $result2 = $stmt2->execute(array(':aer_ids'=>($rutaOrigen)));
+                $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+                foreach($rows2 as $row2){
+                  $rutaOrigenNombre=$row2->aer_ciudad;
+                }
+                ?>
+                <?php
+                $sql2 = "SELECT * FROM aeropuerto where aer_id=:aer_ids";
+                $stmt2 = $con->prepare($sql2);
+                $result2 = $stmt2->execute(array(':aer_ids'=>($rutaDestino)));
+                $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+                foreach($rows2 as $row2){
+                  $rutaDestinoNombre=$row2->aer_ciudad;
+                }
+                ?>
+
+                <td><?php print($rutaOrigenNombre." - ".$rutaDestinoNombre); ?></td>
+
+                <?php
+                $sql2 = "SELECT * FROM avion where avi_id=:avi_ids";
+                $stmt2 = $con->prepare($sql2);
+                $result2 = $stmt2->execute(array(':avi_ids'=>($row->avi_id)));
+                $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+                foreach($rows2 as $row2){
+                ?>
+                <td><?php print($row2->avi_nombre); $nombreavion=$row2->avi_nombre; ?></td>
+                <?php
+                }
+                ?>
                 <td>
                   <div class="btn-group">
-                     <button type="button" class="btn btn-info" onclick="Editar('<?php print($row->vue_id); ?>','<?php print($row->vue_fechaVLlegada); ?>','<?php print($row->vue_fechaVSalida);?>','<?php print($row->vue_horaVLlegada);?>','<?php print($row->vue_horaVSalida);?>','<?php print($row->vue_tipo);?>','<?php print($row->vue_visa);?>','<?php print($row->vue_estadoLog);?>','<?php print($row->rut_id);?>','<?php print($row->avi_id);?>');">
+                     <button type="button" class="btn btn-info" onclick="Editar('<?php print($row->vue_id); ?>','<?php print($row->vue_fechaVLlegada); ?>','<?php print($row->vue_fechaVSalida);?>','<?php print($row->vue_horaVLlegada);?>','<?php print($row->vue_horaVSalida);?>','<?php print($row->vue_tipo);?>','<?php print($row->vue_visa);?>','<?php print($row->vue_estadoLog);?>','<?php print($row->rut_id);?>','<?php print($rutaOrigenNombre." - ".$rutaDestinoNombre);?>','<?php print($row->avi_id);?>','<?php print($nombreavion);?>');">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
                     </button>  
                   </div>
@@ -101,8 +143,8 @@
                 <div class="form-group">
                   <label>Visa</label>
                   <SELECT NAME="visa" class="form-control"> 
-                  <OPTION VALUE="S">Si</OPTION>
-                  <OPTION VALUE="N">No</OPTION>
+                  <OPTION VALUE="SI">SI</OPTION>
+                  <OPTION VALUE="NO">NO</OPTION>
                   </SELECT>
                 </div>
 
@@ -166,7 +208,7 @@
 
       $('#modal').modal('show');
     }
-    function Editar(idvuelo, fechallegada,fechasalida,horallegada,horasalida,tipovuelo,visavuelo, estado, idruta, idavion){
+    function Editar(idvuelo, fechallegada,fechasalida,horallegada,horasalida,tipovuelo,visavuelo, estado, idruta,ruta, idavion,nombreAvion){
       accion = 'E';
       vue_id = idvuelo;
 
@@ -177,8 +219,8 @@
       document.frmVuelo.tipo.value=tipovuelo;
       document.frmVuelo.visa.value=visavuelo;
       document.frmVuelo.estado.value=estado;
-      document.frmVuelo.ruta.value=idruta;
-      document.frmVuelo.avion.value=idavion;
+      document.frmVuelo.ruta.value=ruta;
+      document.frmVuelo.avion.value=nombreAvion;
       document.frmVuelo.ruta1.value=idruta;
       document.frmVuelo.avion1.value=idavion;
       $("#resultadoBusqueda1").html("");
