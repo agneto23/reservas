@@ -23,9 +23,10 @@ $avi_id = $_POST['avi_id'];
 require('Conexion.php');
 
 $con = Conectar();
-$sql = 'UPDATE vuelo set vue_fechaVLlegada=:vue_fechaVLlegada, vue_fechaVSalida=:vue_fechaVSalida, vue_horaVLlegada=:vue_horaVLlegada, vue_horaVSalida=:vue_horaVSalida, vue_tipo=:vue_tipo, vue_visa=:vue_visa, vue_estadoLog=:vue_estadoLog, rut_id=:rut_id, avi_id=:avi_id where vue_id=:vue_id';
+$sql = 'UPDATE vuelo SET vue_fechaVLlegada=:fllegada, vue_fechaVSalida=:fsalida, vue_horaVLlegada=:hllegada, vue_fechaVSalida=:hsalida, vue_tipo=:vtipo, vue_visa=:vvisa, vue_estadoLog=:vestado, rut_id=:ruta, avi_id=:avion WHERE vue_id=:id';
 $q = $con->prepare($sql);
 
-$q->execute(array(':vue_fechaVLlegada'=>$vue_fechaVLlegada, ':vue_fechaVSalida'=>$vue_fechaVSalida, ':vue_horaVLlegada'=>$vue_horaVLlegada, ':vue_horaVSalida'=>$vue_horaVSalida, ':vue_tipo'=>$vue_tipo, ':vue_visa'=>$vue_visa, ':vue_estadoLog'=>$vue_estadoLog, ':rut_id'=>$rut_id, ':avi_id'=>$avi_id), ':vue_id'=>$vue_id);
+$q->execute(array(':fllegada'=>$vue_fechaVLlegada, ':fsalida'=>$vue_fechaVSalida, ':hllegada'=>$vue_horaVLlegada, ':hsalida'=>$vue_horaVSalida, ':vtipo'=>$vue_tipo, ':vvisa'=>$vue_visa, ':vestado'=>$vue_estadoLog, ':ruta'=>$rut_id, ':avion'=>$avi_id, ':id'=>$vue_id));
 
 ?>
+

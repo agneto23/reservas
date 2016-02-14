@@ -117,9 +117,10 @@ vue_horaVSalida = document.frmVuelo.hsalida.value;
 vue_tipo = document.frmVuelo.tipo.value;
 vue_visa= document.frmVuelo.visa.value;
 vue_estadoLog = document.frmVuelo.estado.value;
-rut_id = document.frmVuelo.ruta.value;
-avi_id = document.frmVuelo.avion.value;
+rut_id = document.frmVuelo.ruta1.value;
+avi_id = document.frmVuelo.avion1.value;
 
+ 
 
 ajax = objetoAjax();
 if(accion=='N'){

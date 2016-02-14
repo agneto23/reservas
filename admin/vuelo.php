@@ -159,15 +159,17 @@
       document.frmVuelo.visa.value="";
       document.frmVuelo.estado.value="";
       document.frmVuelo.ruta.value="";
+      document.frmVuelo.ruta1.value="";
       document.frmVuelo.avion.value="";
+      document.frmVuelo.avion1.value="";
       $("#resultadoBusqueda1").html("");
       $("#resultadoBusqueda2").html("");
 
       $('#modal').modal('show');
     }
-    function Editar(id, fechallegada,fechasalida,horallegada,horasalida,tipovuelo,visavuelo, estado, idruta, idavion){
+    function Editar(idvuelo, fechallegada,fechasalida,horallegada,horasalida,tipovuelo,visavuelo, estado, idruta, idavion){
       accion = 'E';
-      vue_id = id;
+      vue_id = idvuelo;
 
       document.frmVuelo.fllegada.value=fechallegada;
       document.frmVuelo.fsalida.value=fechasalida;
@@ -178,6 +180,8 @@
       document.frmVuelo.estado.value=estado;
       document.frmVuelo.ruta.value=idruta;
       document.frmVuelo.avion.value=idavion;
+      document.frmVuelo.ruta1.value=idruta;
+      document.frmVuelo.avion1.value=idavion;
       $("#resultadoBusqueda1").html("");
       $("#resultadoBusqueda2").html("");
       $('#modal').modal('show');
