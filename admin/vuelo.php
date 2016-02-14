@@ -46,8 +46,6 @@
                 <td><?php print($row->vue_tipo); ?></td>
                 <td><?php print($row->vue_visa); ?></td>
                 <td><?php print($row->vue_estadoLog); ?></td>
-
-
                 <td><?php print($row->rut_id); ?></td>
                 <td><?php print($row->avi_id); ?></td>
                 <td>
@@ -216,18 +214,18 @@
 
     function valor2(valor) 
     {
-        alert($("#"+valor).val());
-        document.frmVuelo.ruta.value = valor;
-        document.frmVuelo.ruta1.value = $("#"+valor).val();
+        
+        document.frmVuelo.ruta.value = valor.id;
+        document.frmVuelo.ruta1.value = valor.value;
         $("#resultadoBusqueda1").html("");
         
     }
 
     function valor(valor) 
     {
-        alert($("#"+valor).val());
-        document.frmVuelo.avion.value = valor;
-        document.frmVuelo.avion1.value = $("#"+valor).val();
+        
+        document.frmVuelo.avion.value = valor.id;
+        document.frmVuelo.avion1.value = valor.value;
         $("#resultadoBusqueda2").html("");
         
     }

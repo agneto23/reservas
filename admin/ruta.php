@@ -181,13 +181,13 @@
     function valor(valor) 
     {
       if(OrigenDestino=="1"){
-        document.frmRuta.ciudadOrigenC.value = valor;
-        document.frmRuta.ciudadOrigenC1.value = $("#"+valor).val();
+        document.frmRuta.ciudadOrigenC.value = valor.id;
+        document.frmRuta.ciudadOrigenC1.value = valor.value;
         $("#resultadoBusquedaOrigen").html("");
         }
         if(OrigenDestino=="2"){
-        document.frmRuta.ciudadDestinoC.value = valor;
-        document.frmRuta.ciudadDestinoC1.value = $("#"+valor).val();
+        document.frmRuta.ciudadDestinoC.value = valor.id;
+        document.frmRuta.ciudadDestinoC1.value = valor.value;
         $("#resultadoBusquedaDestino").html("");
         }
     }

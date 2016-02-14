@@ -52,7 +52,7 @@
 
                 <td>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-info" onclick="Editar('<?php print($row->avi_id); ?>','<?php print($row->avi_asientos); ?>','<?php print($row->avi_aerolinea);?>','<?php print($row->avi_estadoLog);?>','<?php print($nombre_aeropuero);?>','<?php print($row->aer_id);?>');">
+                    <button type="button" class="btn btn-info" onclick="Editar('<?php print($row->avi_id); ?>','<?php print($row->avi_asientos); ?>','<?php print($row->avi_aerolinea);?>','<?php print($row->avi_estadoLog);?>','<?php print($nombre_aeropuero);?>','<?php print($row->aer_id);?>','<?php print($nombre_aeropuero);?>');">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
                     </button>   
                   </div>
@@ -147,13 +147,13 @@
 
       $('#modal').modal('show');
     }
-    function Editar(id, asiento, aerolinea,estado,aeropuerto){
+    function Editar(id, asiento, aerolinea,estado,idaeropuerto,aeropuerto){
       accion = 'E';
       avi_id = id;
       document.frmAeropuerto.asiento.value = asiento;
       document.frmAeropuerto.aerolinea.value = aerolinea;
       document.frmAeropuerto.estado.value = estado;
-      document.frmAeropuerto.aeropuerto.value = aeropuerto;
+      document.frmAeropuerto.aeropuerto.value = idaeropuerto;
       document.frmAeropuerto.aeropuerto1.value = aeropuerto;
       $('#modal').modal('show');
       $("#resultadoBusqueda").html("");
@@ -176,8 +176,9 @@
 
     function valor(valor) 
     {
-        document.frmAeropuerto.aeropuerto.value = valor;
-        document.frmAeropuerto.aeropuerto1.value = $("#"+valor).val();
+        alert(valor.id);
+        document.frmAeropuerto.aeropuerto.value = valor.id;
+        document.frmAeropuerto.aeropuerto1.value = valor.value;
         $("#resultadoBusqueda").html("");
         
     }

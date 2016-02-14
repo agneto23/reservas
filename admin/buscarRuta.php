@@ -49,7 +49,7 @@
 			};
 
 			$mensaje .= "
-  			<li onclick='valor2(this.id)' id='".$ciudadOrigen." - ".$ciudadDestino."' name='".$ciudadOrigen."' value='".$id."' class='list-group-item search-query'>".$ciudadOrigen." - ".$ciudadDestino."</li>";
+  			<li onclick='valor2(this)' id='".$ciudadOrigen."-".$ciudadDestino."' name='".$ciudadOrigen."' value='".$id."' class='list-group-item search-query'>".$ciudadOrigen." - ".$ciudadDestino."</li>";
 
 			};
 			};

@@ -42,7 +42,7 @@
 			$id = $resultados['aer_id'];
 			//Output
 			$mensaje .= "
-  			<li onclick='valor(this.id)' id='".$aer_ciudad."' name='".$aer_ciudad."' value='".$id."' class='list-group-item search-query'>".$aer_ciudad."</li>";
+  			<li onclick='valor(this)' id='".$aer_ciudad."' name='".$aer_ciudad."' value='".$id."' class='list-group-item search-query'>".$aer_ciudad."</li>";
   			
 
 		};//Fin while $resultados

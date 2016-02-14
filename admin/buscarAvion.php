@@ -42,7 +42,7 @@
 			$id = $resultados['avi_id'];
 			//Output
 			$mensaje .= "
-  			<li onclick='valor(this.id)' id='".$avi_aerolinea."' name='".$avi_aerolinea."' value='".$id."' class='list-group-item search-query'>".$avi_aerolinea." Asientos: ".$avi_asientos."</li>";
+  			<li onclick='valor(this)' id='".$avi_aerolinea."' name='".$avi_aerolinea."' value='".$id."' class='list-group-item search-query'>".$avi_aerolinea." Asientos: ".$avi_asientos."</li>";
   			
 
 		};//Fin while $resultados
