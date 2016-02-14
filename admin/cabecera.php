@@ -98,13 +98,13 @@
                         <li class="nav-header">Menu</li>
                         <li><a class="ajax-link" href="index.html"><i class="glyphicon glyphicon-home"></i><span> Reservas</span></a>
                         </li>
-                        <li><a class="ajax-link" href="ui.html"><i class="glyphicon glyphicon-eye-open"></i><span> Clientes</span></a>
+                        <li><a class="ajax-link" href="ui.html"><i class="glyphicon glyphicon-user"></i><span> Clientes</span></a>
                         </li>
-                        <li><a class="ajax-link" href="vuelo.php"><i class="glyphicon glyphicon-list-alt"></i><span> Vuelo</span></a>
+                        <li><a class="ajax-link" href="vuelo.php"><i class="glyphicon glyphicon-send"></i><span> Vuelo</span></a>
                         </li>
-                        <li><a class="ajax-link" href="avion.php"><i class="glyphicon glyphicon-font"></i><span> Avion</span></a>
+                        <li><a class="ajax-link" href="avion.php"><i class="glyphicon glyphicon-plane"></i><span> Avion</span></a>
                         </li>
-                        <li><a class="ajax-link" href="ruta.php"><i class="glyphicon glyphicon-picture"></i><span> Ruta</span></a>
+                        <li><a class="ajax-link" href="ruta.php"><i class="glyphicon glyphicon-transfer"></i><span> Ruta</span></a>
                         </li>
                         </li>
                         <li><a class="ajax-link" href="gallery.html"><i class="glyphicon glyphicon-picture"></i><span> Escala</span></a>
