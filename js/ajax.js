@@ -62,6 +62,7 @@ ajax.send("aer_id="+aer_id)
 
 
 function Registrar_Avion(avi_id, accion){
+nombre = document.frmAeropuerto.nombre.value;
 asiento = document.frmAeropuerto.asiento.value;
 aerolinea = document.frmAeropuerto.aerolinea.value;
 estado = document.frmAeropuerto.estado.value;
@@ -81,7 +82,7 @@ ajax.onreadystatechange=function() {
 	}
 
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-ajax.send("avi_id="+avi_id+"&avi_asientos="+asiento+"&avi_aerolinea="+aerolinea+"&avi_estadoLog="+estado+"&aer_id="+aeropuerto)
+ajax.send("avi_id="+avi_id+"&avi_nombre="+nombre+"&avi_asientos="+asiento+"&avi_aerolinea="+aerolinea+"&avi_estadoLog="+estado+"&aer_id="+aeropuerto)
 }
 
 

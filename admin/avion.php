@@ -16,6 +16,7 @@
           <thead>
             <tr>
               <th>Codigo</th>
+              <th>Nombre</th>
               <th>Asientos</th>
               <th>Aerolinea</th>
               <th>Estado</th>
@@ -34,6 +35,7 @@
               ?>
               <tr>
                 <td><?php print($row->avi_id); ?></td>
+                <td><?php print($row->avi_nombre); ?></td>
                 <td><?php print($row->avi_asientos); ?></td>
                 <td><?php print($row->avi_aerolinea); ?></td>
                 <td><?php print($row->avi_estadoLog); ?></td>
@@ -52,7 +54,7 @@
 
                 <td>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-info" onclick="Editar('<?php print($row->avi_id); ?>','<?php print($row->avi_asientos); ?>','<?php print($row->avi_aerolinea);?>','<?php print($row->avi_estadoLog);?>','<?php print($nombre_aeropuero);?>','<?php print($row->aer_id);?>','<?php print($nombre_aeropuero);?>');">
+                    <button type="button" class="btn btn-info" onclick="Editar('<?php print($row->avi_id); ?>','<?php print($row->avi_nombre); ?>','<?php print($row->avi_asientos); ?>','<?php print($row->avi_aerolinea);?>','<?php print($row->avi_estadoLog);?>','<?php print($nombre_aeropuero);?>','<?php print($row->aer_id);?>','<?php print($nombre_aeropuero);?>');">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
                     </button>   
                   </div>
@@ -74,17 +76,23 @@
             </div>
             <form role="form" action="" name="frmAeropuerto">
               <div class="col-lg-12">
+                
+                <div class="form-group"><br>
+                  <label>Nombre</label>
+                  <input name="nombre" class="form-control" required>
+                </div>
+
                 <div class="form-group"><br>
                   <label>Asientos</label>
                   <input name="asiento" class="form-control" required>
                 </div>
-
+                
                 <div class="form-group">
                   <label>Aerolinea</label>
                   <SELECT NAME="aerolinea" class="form-control"> 
                   <OPTION VALUE="Tame">Tame</OPTION>
                   <OPTION VALUE="Avianca">Avianca</OPTION>
-                  <OPTION VALUE="Lan">LAN</OPTION>
+                  <OPTION VALUE="LAN">LAN</OPTION>
                   </SELECT>
                 </div>
 
@@ -142,6 +150,7 @@
     var avi_id;
     function Nuevo(){
       accion = 'N';
+      document.frmAeropuerto.nombre.value = "";
       document.frmAeropuerto.asiento.value = "";
       document.frmAeropuerto.aerolinea.value = "";
       document.frmAeropuerto.estado.value = "";
@@ -151,9 +160,10 @@
 
       $('#modal').modal('show');
     }
-    function Editar(id, asiento, aerolinea,estado,idaeropuerto,aeropuerto){
+    function Editar(id, nombre, asiento, aerolinea,estado,idaeropuerto,aeropuerto){
       accion = 'E';
       avi_id = id;
+      document.frmAeropuerto.nombre.value = nombre;
       document.frmAeropuerto.asiento.value = asiento;
       document.frmAeropuerto.aerolinea.value = aerolinea;
       document.frmAeropuerto.estado.value = estado;
@@ -180,7 +190,7 @@
 
     function valor(valor) 
     {
-        alert(valor.id);
+
         document.frmAeropuerto.aeropuerto.value = valor.id;
         document.frmAeropuerto.aeropuerto1.value = valor.value;
         $("#resultadoBusqueda").html("");
