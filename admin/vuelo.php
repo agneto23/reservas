@@ -43,7 +43,12 @@
                 <td><?php print($row->vue_fechaVLlegada); ?></td>
                 <td><?php print($row->vue_horaVSalida); ?></td>
                 <td><?php print($row->vue_horaVLlegada); ?></td>
-                <td><?php print($row->vue_tipo); ?></td>
+                <td><?php 
+                  if(($row->vue_tipo)=="D")
+                  {print("Directo");}
+                  if(($row->vue_tipo)=="E")
+                  {print("Escala");}
+                ?></td>
                 <td><?php print($row->vue_visa); ?></td>
                 <td><?php print($row->vue_estadoLog); ?></td>
                 
