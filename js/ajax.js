@@ -105,3 +105,34 @@ ajax.onreadystatechange=function() {
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 ajax.send("rut_id="+rut_id+"&rut_estadoLog="+estado+"&aer_id_origen="+ciudadOrigen+"&aer_id_destino="+ciudadDestino)
 }
+
+
+function Registrar_Vuelo(vue_id, accion){
+
+
+vue_fechaVLlegada = document.frmVuelo.fllegada.value;
+vue_fechaVSalida = document.frmVuelo.fsalida.value;
+vue_horaVLlegada = document.frmVuelo.hllegada.value;
+vue_horaVSalida = document.frmVuelo.hsalida.value;
+vue_tipo = document.frmVuelo.tipo.value;
+vue_visa= document.frmVuelo.visa.value;
+vue_estadoLog = document.frmVuelo.estado.value;
+rut_id = document.frmVuelo.ruta.value;
+avi_id = document.frmVuelo.avion.value;
+
+
+ajax = objetoAjax();
+if(accion=='N'){
+ajax.open("POST", "../baseDatos/Registrar_Vuelo.php", true);
+}else if(accion=='E'){
+ajax.open("POST", "../baseDatos/Actualizar_Vuelo.php", true);
+}
+ajax.onreadystatechange=function() {
+		if (ajax.readyState==4) {
+			alert('Los datos fueron guardados con exito!');
+      window.location.reload(true);
+		}
+	}
+ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+ajax.send("vue_id="+vue_id+"&vue_fechaVLlegada="+vue_fechaVLlegada+"&vue_fechaVSalida="+vue_fechaVSalida+"&vue_horaVLlegada="+vue_horaVLlegada+"&vue_horaVSalida="+vue_horaVSalida+"&vue_tipo="+vue_tipo+"&vue_visa="+vue_visa+"&vue_estadoLog="+vue_estadoLog+"&rut_id="+rut_id+"&avi_id="+avi_id)
+}

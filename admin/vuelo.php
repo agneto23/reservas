@@ -46,17 +46,15 @@
                 <td><?php print($row->vue_tipo); ?></td>
                 <td><?php print($row->vue_visa); ?></td>
                 <td><?php print($row->vue_estadoLog); ?></td>
+
+
                 <td><?php print($row->rut_id); ?></td>
                 <td><?php print($row->avi_id); ?></td>
                 <td>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-danger btn-xs">Seleccione</button>
-                    <button type="button" class="btn btn-danger btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a onclick="Editar('<?php print($row->vue_id); ?>','<?php print($row->vue_fechaVLlegada); ?>','<?php print($row->vue_fechaVSalida);?>','<?php print($row->vue_horaVLlegada);?>','<?php print($row->vue_horaVSalida);?>','<?php print($row->vue_tipo);?>','<?php print($row->vue_visa);?>','<?php print($row->vue_estadoLog);?>','<?php print($row->rut_id);?>','<?php print($row->avi_id);?>');">Actualizar</a></li>
-                    </ul>
+                     <button type="button" class="btn btn-info" onclick="Editar('<?php print($row->vue_id); ?>','<?php print($row->vue_fechaVLlegada); ?>','<?php print($row->vue_fechaVSalida);?>','<?php print($row->vue_horaVLlegada);?>','<?php print($row->vue_horaVSalida);?>','<?php print($row->vue_tipo);?>','<?php print($row->vue_visa);?>','<?php print($row->vue_estadoLog);?>','<?php print($row->rut_id);?>','<?php print($row->avi_id);?>');">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
+                    </button>  
                   </div>
                 </td>
               </tr>
@@ -74,7 +72,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <div class="modal-title">Vuelo</div>
             </div>
-            <form role="form" action="" name="frmAeropuerto">
+            <form role="form" action="" name="frmVuelo">
               <div class="col-lg-12">
                 <div class="form-group"><br>
                   <label>Fecha Llegada</label>
@@ -97,7 +95,7 @@
 
                 <div class="form-group">
                   <label>Tipo</label>
-                  <SELECT NAME="estado" class="form-control"> 
+                  <SELECT NAME="tipo" class="form-control"> 
                   <OPTION VALUE="D">Directo</OPTION>
                   <OPTION VALUE="E">Escala</OPTION>
                   </SELECT>
@@ -105,7 +103,7 @@
 
                 <div class="form-group">
                   <label>Visa</label>
-                  <SELECT NAME="estado" class="form-control"> 
+                  <SELECT NAME="visa" class="form-control"> 
                   <OPTION VALUE="S">Si</OPTION>
                   <OPTION VALUE="N">No</OPTION>
                   </SELECT>
@@ -137,7 +135,7 @@
               
             </form>
             <div class="modal-footer">
-              <button type="button" class="btn btn-info" onClick="Registrar_Avion(avi_id,accion); return false">
+              <button type="button" class="btn btn-info" onClick="Registrar_Vuelo(vue_id,accion); return false">
                   <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
               </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancel</button>
@@ -151,21 +149,39 @@
 
     <script type="text/javascript">
     var accion;
-    var avi_id;
+    var vue_id;
     function Nuevo(){
       accion = 'N';
       
-      $("#resultadoBusqueda").html("");
+      document.frmVuelo.fllegada.value="";
+      document.frmVuelo.fsalida.value="";
+      document.frmVuelo.hllegada.value="";
+      document.frmVuelo.hsalida.value="";
+      document.frmVuelo.tipo.value="";
+      document.frmVuelo.visa.value="";
+      document.frmVuelo.estado.value="";
+      document.frmVuelo.ruta.value="";
+      document.frmVuelo.avion.value="";
+      $("#resultadoBusqueda1").html("");
+      $("#resultadoBusqueda2").html("");
 
       $('#modal').modal('show');
     }
-    function Editar(id, asiento, aerolinea,estado,aeropuerto){
+    function Editar(id, fechallegada,fechasalida,horallegada,horasalida,tipovuelo,visavuelo, estado, idruta, idavion){
       accion = 'E';
-      avi_id = id;
-      document.frmAeropuerto.asiento.value = asiento;
-      document.frmAeropuerto.aerolinea.value = aerolinea;
-      document.frmAeropuerto.estado.value = estado;
-      document.frmAeropuerto.aeropuerto.value = aeropuerto;
+      vue_id = id;
+
+      document.frmVuelo.fllegada.value=fechallegada;
+      document.frmVuelo.fsalida.value=fechasalida;
+      document.frmVuelo.hllegada.value=horallegada;
+      document.frmVuelo.hsalida.value=horasalida;
+      document.frmVuelo.tipo.value=tipovuelo;
+      document.frmVuelo.visa.value=visavuelo;
+      document.frmVuelo.estado.value=estado;
+      document.frmVuelo.ruta.value=idruta;
+      document.frmVuelo.avion.value=idavion;
+      $("#resultadoBusqueda1").html("");
+      $("#resultadoBusqueda2").html("");
       $('#modal').modal('show');
     }
 
@@ -200,16 +216,18 @@
 
     function valor2(valor) 
     {
-        document.frmAeropuerto.ruta.value = valor;
-        document.frmAeropuerto.ruta1.value = $("#"+valor).val();
+        alert($("#"+valor).val());
+        document.frmVuelo.ruta.value = valor;
+        document.frmVuelo.ruta1.value = $("#"+valor).val();
         $("#resultadoBusqueda1").html("");
         
     }
 
     function valor(valor) 
     {
-        document.frmAeropuerto.avion.value = valor;
-        document.frmAeropuerto.avion1.value = $("#"+valor).val();
+        alert($("#"+valor).val());
+        document.frmVuelo.avion.value = valor;
+        document.frmVuelo.avion1.value = $("#"+valor).val();
         $("#resultadoBusqueda2").html("");
         
     }
