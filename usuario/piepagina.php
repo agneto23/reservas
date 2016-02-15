@@ -2,7 +2,7 @@
 	<div class="main">
 <!-- footer -->
 		<footer>
-			 <h3> © 2016 VIAJA AHORA S.A.</h3>
+			 <h3> © 2016 VUELA HOY S.A.</h3>
 			 Todos los derechos reservados.
 		</footer>
 <!-- / footer -->

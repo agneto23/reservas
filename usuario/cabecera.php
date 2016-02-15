@@ -52,17 +52,48 @@
 	<header>
 			<div class="wrapper">
 				<h1>
-					<a href="index.html" id="logo">Air Lines</a><span id="slogan">International Travel</span>
+					<a href="index.html" id="logo">Air Lines</a><span id="slogan">Viajes Internacionales</span>
 				</h1>
 				<div class="right">
 					<nav>
 						<ul id="top_nav">
-							<form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" action="usuario/log.php" method="POST">
+							
+							<?php
 
-						    <input  type="text"  style=" width: 150px ; height: 22px ;color: black" class="form-control" name="txtusuario"  placeholder="Ingresa tu cédula">
-						    <input  type="password" style=" width: 150px ; height: 22px ;color: black" class="form-control" name="txtpassword" placeholder="Ingresa tu contraseña">
-						     <input name="login" style=" width: 60px ; height: 23px ;color: black" class="btn btn-primary pull-right" type="submit" value="Entrar">
-							</form>   
+							   session_start();
+
+								
+								if (isset($_SESSION['admin'])) {
+
+										echo "<form name='form' id='form' class='form-horizontal' enctype='multipart/form-data' action='usuario/destruir.php' method='POST'>
+
+						    <label> <font color='white' face='Helvetica' size=5>  Usuario  </font></label>
+						    <label> <font color='white' face='Helvetica' size=5>  Usuario  </font></label>
+						    <label> <font color='white' face='Helvetica' size=5> &nbsp; &nbsp; </font></label>
+						    
+						     <input name='login'  class='button2' type='submit' value='Salir'>
+							</form>  ";
+									  
+							?>	
+
+							
+
+
+							<?php
+
+
+								}else{
+
+									
+
+									echo "<form name='form' id='form' class='form-horizontal' enctype='multipart/form-data' action='usuario/log.php' method='POST'>
+
+						    <input  type='text'  style=' width: 150px ; height: 22px ;color: black' class='form-control' name='txtusuario'  placeholder='Ingresa tu cédula'>
+						    <input  type='password' style=' width: 150px ; height: 22px ;color: black' class='form-control' name='txtpassword' placeholder='Ingresa tu contraseña'>
+						     <input name='login' class='button2' type='submit' value='Entrar'>
+							</form>  ";
+								}
+							?> 
 						</ul>
 					</nav>
 					<nav>
