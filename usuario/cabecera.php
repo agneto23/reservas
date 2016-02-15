@@ -9,18 +9,20 @@
     
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>   
-    <script type="text/javascript" src="../js/script.js"></script> 
-    <script type="text/javascript" src="../js/jquery.js"></script>
-    <script src="../js/moment.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script> 
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
         
-    <script type="text/javascript" src="../js/jquery.countdown.js"></script>
+    <script type="text/javascript" src="js/jquery.countdown.js"></script>
    
-    <script type="text/javascript" src="../js/ajax.js"></script>
+    <script type="text/javascript" src="js/ajax.js"></script>
 
         
-    <script type="text/javascript" src="../js/bootstrap-datetimepicker.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap-datetimepicker.css">
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.css">
+    <script type="text/javascript" src="js/bootbox.js"></script>
+		  <script type="text/javascript" src="js/bootbox.min.js"></script>
 
  
 
@@ -47,31 +49,33 @@
 <div class="body1">
 	<div class="main">
 <!-- header -->
-	<div class="navbar navbar-default" role="navigation">
-			<div class="navbar-inner">
+	<header>
+			<div class="wrapper">
 				<h1>
-					<a href="index.html" id="logo"></a><span id="slogan">Viajes Internacionales</span>
+					<a href="index.html" id="logo">Air Lines</a><span id="slogan">International Travel</span>
 				</h1>
 				<div class="right">
 					<nav>
 						<ul id="top_nav">
-						    <input  type="text" class="form-control" name="txtusuario"  placeholder="Ingresa tu cédula">
-						    <input  type="password" class="form-control" name="txtpassword" placeholder="Ingresa tu contraseña">
-						     <input name="login" class="btn btn-primary pull-right" type="submit" value="login">
-							
-					    </ul>
+							<form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" action="usuario/log.php" method="POST">
+
+						    <input  type="text"  style=" width: 150px ; height: 22px ;color: black" class="form-control" name="txtusuario"  placeholder="Ingresa tu cédula">
+						    <input  type="password" style=" width: 150px ; height: 22px ;color: black" class="form-control" name="txtpassword" placeholder="Ingresa tu contraseña">
+						     <input name="login" style=" width: 60px ; height: 23px ;color: black" class="btn btn-primary pull-right" type="submit" value="Entrar">
+							</form>   
+						</ul>
 					</nav>
 					<nav>
 						<ul id="menu">
-							<li id="menu_active"><a href="index.html">Inicio</a></li>
-							<li><a href="index-1.html">Viajes</a></li>
-							<li><a href="index-2.html">Rutas</a></li>
-							<li><a href="index-3.html">Avion</a></li>
-							<li><a href="index-4.html">Contactos</a></li>
+							<li id="menu_active"><a href="index.html">Home</a></li>
+							<li><a href="index-1.html">Our Aircraft</a></li>
+							<li><a href="index-2.html">Safety</a></li>
+							<li><a href="index-3.html">Charters</a></li>
+							<li><a href="index-4.html">Contacts</a></li>
 						</ul>
 					</nav>
 				</div>
 			</div>
-	</div>	
+		</header>
 	</div>
 </div>
