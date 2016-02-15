@@ -54,9 +54,22 @@
 
                 <td>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-info" onclick="Editar('<?php print($row->avi_id); ?>','<?php print($row->avi_nombre); ?>','<?php print($row->avi_asientos); ?>','<?php print($row->avi_aerolinea);?>','<?php print($row->avi_estadoLog);?>','<?php print($nombre_aeropuero);?>','<?php print($row->aer_id);?>','<?php print($nombre_aeropuero);?>');">
+                    <button type="button" class="btn btn-info btn-xs" onclick="Editar('<?php print($row->avi_id); ?>','<?php print($row->avi_nombre); ?>','<?php print($row->avi_asientos); ?>','<?php print($row->avi_aerolinea);?>','<?php print($row->avi_estadoLog);?>','<?php print($nombre_aeropuero);?>','<?php print($row->aer_id);?>','<?php print($nombre_aeropuero);?>');">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
                     </button>   
+                  </div>
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-info btn-xs">Clases</button>
+                    <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li onclick="NuevaClase();"><a >Agregar Clase</a></li>
+                      <li class="divider"></li>
+                      <li><a >Ver Clases</a></li>
+                    </ul>
                   </div>
                 </td>
               </tr>
@@ -72,7 +85,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <div class="modal-title" > Aeropuerto</div>
+              <div class="modal-title" > Avion</div>
             </div>
             <form role="form" action="" name="frmAeropuerto">
               <div class="col-lg-12">
@@ -106,23 +119,7 @@
 
                 <div class="form-group">
                   <label>Aeropuerto</label>
-                  <!--<SELECT NAME="aeropuerto" class="form-control"> 
-                  <?php
                 
-                  $con1 = Conectar();
-                  $sql1 = "SELECT aer_id,aer_nombre FROM aeropuerto";
-                  $stmt1 = $con->prepare($sql1);
-                  $result1 = $stmt1->execute();
-                  $rows1 = $stmt1->fetchAll(\PDO::FETCH_OBJ);
-                  foreach($rows1 as $row){
-                    ?>  
-                  <OPTION VALUE="<?php print($row->aer_id); ?>"><?php print($row->aer_nombre); ?></OPTION>
-                 
-                  <?php
-                  }
-                  ?>
-                  </SELECT>-->
-
                   <input type="text" class="input-medium search-query form-control" name="aeropuerto" placeholder="Aeropuerto" id="aeropuerto" autocomplete="off" onKeyUp="buscar();" />
                    <ul id="resultadoBusqueda" class="list-unstyled press"></ul>
                    <input type="hidden" name="aeropuerto1"  id="aeropuerto1" />
@@ -142,6 +139,61 @@
         </div>
       </div>
 
+
+
+      <div class="modal fade" id="clases" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <div class="modal-title" > Clase del Avion</div>
+            </div>
+            <form role="form" action="" name="frmClase">
+              <div class="col-lg-12">
+                
+                <div class="form-group"><br>
+                  <label>Tipo de Clase</label>
+                  <input name="tipo" class="form-control" required>
+                </div>
+
+                <div class="form-group"><br>
+                  <label>Rango de Asientos - Inicio</label>
+                  <input name="asientoInicio" class="form-control" required>
+                </div>
+
+                <div class="form-group"><br>
+                  <label>Rango de Asientos - Fin</label>
+                  <input name="asientoFin" class="form-control" required>
+                </div>
+
+                <div class="form-group"><br>
+                  <label>Costo</label>
+                  <input name="costo" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Estado</label>
+                  <SELECT NAME="estado" class="form-control"> 
+                  <OPTION VALUE="T">Activo</OPTION>
+                  <OPTION VALUE="F">Inactivo</OPTION>
+                  </SELECT>
+                </div>
+                
+              </div>
+              
+            </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-info" onClick="Registrar_Avion(avi_id,accion); return false">
+                  <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Guardar
+              </button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
 
 
@@ -160,6 +212,17 @@
 
       $('#modal').modal('show');
     }
+
+    function NuevaClase(){
+      accion = 'N';
+      document.frmClase.tipo.value="";
+      document.frmClase.asientoInicio.value = "";
+      document.frmClase.asientoFin.value = "";
+      document.frmClase.estado.value = "";
+      document.frmClase.costo.value = "";
+      $('#clases').modal('show');
+    }
+
     function Editar(id, nombre, asiento, aerolinea,estado,idaeropuerto,aeropuerto){
       accion = 'E';
       avi_id = id;
