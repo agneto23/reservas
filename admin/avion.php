@@ -210,7 +210,6 @@
               <div id="resultadoclases"></div>
              </div>
 
-       
       </div>
 
 
