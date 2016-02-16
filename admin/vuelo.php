@@ -22,6 +22,7 @@
               <th>Hora Llegada</th>
               <th>Tipo</th>
               <th>Visa</th>
+              <th>Costo</th>
               <th>Estado</th>
               <th>Ruta</th>
               <th>Avion</th>
@@ -50,6 +51,7 @@
                   {print("Escala");}
                 ?></td>
                 <td><?php print($row->vue_visa); ?></td>
+                <td><?php print($row->vue_costo); ?></td>
                 <td><?php print($row->vue_estadoLog); ?></td>
                 
                 <?php
@@ -97,9 +99,22 @@
                 ?>
                 <td>
                   <div class="btn-group">
-                     <button type="button" class="btn btn-info" onclick="Editar('<?php print($row->vue_id); ?>','<?php print($row->vue_fechaVLlegada); ?>','<?php print($row->vue_fechaVSalida);?>','<?php print($row->vue_horaVLlegada);?>','<?php print($row->vue_horaVSalida);?>','<?php print($row->vue_tipo);?>','<?php print($row->vue_visa);?>','<?php print($row->vue_estadoLog);?>','<?php print($row->rut_id);?>','<?php print($rutaOrigenNombre." - ".$rutaDestinoNombre);?>','<?php print($row->avi_id);?>','<?php print($nombreavion);?>');">
+                     <button type="button" class="btn btn-info btn-xs" onclick="Editar('<?php print($row->vue_id); ?>','<?php print($row->vue_fechaVLlegada); ?>','<?php print($row->vue_fechaVSalida);?>','<?php print($row->vue_horaVLlegada);?>','<?php print($row->vue_horaVSalida);?>','<?php print($row->vue_tipo);?>','<?php print($row->vue_visa);?>','<?php print($row->vue_costo);?>','<?php print($row->vue_estadoLog);?>','<?php print($row->rut_id);?>','<?php print($rutaOrigenNombre." - ".$rutaDestinoNombre);?>','<?php print($row->avi_id);?>','<?php print($nombreavion);?>');">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
                     </button>  
+                  </div>
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-info btn-xs">Clases</button>
+                    <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li onclick="NuevaEscala();"><a >Agregar Escala</a></li>
+                      <li class="divider"></li>
+                      <li onclick="VerEscala('<?php print($row->vue_id); ?>');"><a >Ver Escalas</a></li>
+                    </ul>
                   </div>
                 </td>
               </tr>
@@ -154,6 +169,11 @@
                 </div>
 
                 <div class="form-group">
+                  <label>Costo</label>
+                  <input name="costo" type="text" class="form-control" required>
+                </div>
+
+                <div class="form-group">
                   <label>Estado</label>
                   <SELECT NAME="estado" class="form-control"> 
                   <OPTION VALUE="T">Activo</OPTION>
@@ -188,12 +208,83 @@
         </div>
       </div>
 
+
+      <div class="modal fade" id="escalas" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <div class="modal-title" > Escala del Vuelo</div>
+            </div>
+            <form role="form" action="" name="frmClase">
+              <div class="col-lg-12">
+                
+                <div class="form-group"><br>
+                  <label>Tipo de Clase</label>
+                  <input name="tipo" class="form-control" required>
+                </div>
+
+                <div class="form-group"><br>
+                  <label>Rango de Asientos - Inicio</label>
+                  <input name="asientoInicio" class="form-control" required>
+                </div>
+
+                <div class="form-group"><br>
+                  <label>Rango de Asientos - Fin</label>
+                  <input name="asientoFin" class="form-control" required>
+                </div>
+
+                <div class="form-group"><br>
+                  <label>Costo</label>
+                  <input name="costo" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Estado</label>
+                  <SELECT NAME="estado" class="form-control"> 
+                  <OPTION VALUE="T">Activo</OPTION>
+                  <OPTION VALUE="F">Inactivo</OPTION>
+                  </SELECT>
+                </div>
+                
+              </div>
+              
+            </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-info" onClick="Registrar_Avion(avi_id,accion); return false">
+                  <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Guardar
+              </button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
 
 
     <script type="text/javascript">
     var accion;
     var vue_id;
+
+    function NuevaEscala(){
+      accion = 'N';
+      document.frmClase.tipo.value="";
+      document.frmClase.asientoInicio.value = "";
+      document.frmClase.asientoFin.value = "";
+      document.frmClase.estado.value = "";
+      document.frmClase.costo.value = "";
+      $('#escalas').modal('show');
+    }
+
+    function VerEscala(codigo){
+
+      document.frmListaClase.codigoAvion.value=codigo;
+
+      $('#escalas').modal('show');
+    }
+
     function Nuevo(){
       accion = 'N';
       
@@ -203,6 +294,7 @@
       document.frmVuelo.hsalida.value="";
       document.frmVuelo.tipo.value="";
       document.frmVuelo.visa.value="";
+      document.frmVuelo.costo.value="";
       document.frmVuelo.estado.value="";
       document.frmVuelo.ruta.value="";
       document.frmVuelo.ruta1.value="";
@@ -213,7 +305,7 @@
 
       $('#modal').modal('show');
     }
-    function Editar(idvuelo, fechallegada,fechasalida,horallegada,horasalida,tipovuelo,visavuelo, estado, idruta,ruta, idavion,nombreAvion){
+    function Editar(idvuelo, fechallegada,fechasalida,horallegada,horasalida,tipovuelo,visavuelo, costovuelo, estado, idruta,ruta, idavion,nombreAvion){
       accion = 'E';
       vue_id = idvuelo;
 
@@ -223,6 +315,7 @@
       document.frmVuelo.hsalida.value=horasalida;
       document.frmVuelo.tipo.value=tipovuelo;
       document.frmVuelo.visa.value=visavuelo;
+      document.frmVuelo.costo.value=costovuelo;
       document.frmVuelo.estado.value=estado;
       document.frmVuelo.ruta.value=ruta;
       document.frmVuelo.avion.value=nombreAvion;
