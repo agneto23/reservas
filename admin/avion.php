@@ -219,7 +219,6 @@
           </thead>
           <tbody>
             <?php
-            
             $cod = $_POST['codigoAvion'];
             $sql3 = "SELECT * FROM  clase where avi_id=:codigoA";
             $stmt3 = $con->prepare($sql3);
