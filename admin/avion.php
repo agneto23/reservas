@@ -68,7 +68,7 @@
                     <ul class="dropdown-menu" role="menu">
                       <li onclick="NuevaClase();"><a >Agregar Clase</a></li>
                       <li class="divider"></li>
-                      <li onclick="VerClase('<?php print($row->avi_id); ?>');"><a >Ver Clases</a></li>
+                      <li onclick="verclases('<?php print($row->avi_id); ?>');"><a >Ver Clases</a></li>
                     </ul>
                   </div>
                 </td>
@@ -206,50 +206,8 @@
              <form role="form" action="" name="frmListaClase">
              <input type="hidden" name="codigoAvion"  id="codigoAvion" />
             <div class="panel-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Codigo</th>
-              <th>Tipo</th>
-              <th>Rango Asiento Inicio</th>
-              <th>Rango Asiento Fin</th>
-              <th>Costo</th>
-              <th>Estado</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            
-            $cod = $_POST['codigoAvion'];
-            $sql3 = "SELECT * FROM  clase where avi_id=:codigoA";
-            $stmt3 = $con->prepare($sql3);
-            $result3 = $stmt3->execute(array(':codigoA'=>($cod)));
-            $rows3 = $stmt3->fetchAll(\PDO::FETCH_OBJ);
-            foreach($rows3 as $row3){
-              ?>
-              <tr>
-                <td><?php print($row3->cla_id); ?></td>
-                <td><?php print($row3->cla_tipo); ?></td>
-                <td><?php print($row3->cla_asientoInicio); ?></td>
-                <td><?php print($row3->cla_asientoFin); ?></td>
-                <td><?php print($row3->cla_costo); ?></td>
-                <td><?php print($row3->cla_estadoLog); ?></td>
-
-                 
-                <td>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-info btn-xs">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
-                    </button>   
-                  </div>
-                </td>
-              </tr>
-              <?php
-            }
-            ?>
-          </tbody>
-        </table>
-      </div>
+              <div id="resultadoclases"></div>
+             </div>
 
     </form>
           </div>
@@ -289,12 +247,7 @@
       $('#clases').modal('show');
     }
 
-    function VerClase(codigo){
-
-      document.frmListaClase.codigoAvion.value=codigo;
-
-      $('#VerClases').modal('show');
-    }
+    
 
     function Editar(id, nombre, asiento, aerolinea,estado,idaeropuerto,aeropuerto){
       accion = 'E';
@@ -322,6 +275,22 @@
         } else { 
             $("#resultadoBusqueda").html("");
       };
+    };
+
+
+    function verclases(codigo) 
+    {
+        var textoBusqueda = codigo;
+
+        if (textoBusqueda != "") {
+            $.post("VerClases.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+              $("#resultadoclases").html(mensaje);
+            }); 
+        } else { 
+            $("#resultadoclases").html("");
+      };
+
+      $('#VerClases').modal('show');
     };
 
     function valor(valor) 
