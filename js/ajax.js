@@ -117,6 +117,7 @@ vue_horaVLlegada = document.frmVuelo.hllegada.value;
 vue_horaVSalida = document.frmVuelo.hsalida.value;
 vue_tipo = document.frmVuelo.tipo.value;
 vue_visa= document.frmVuelo.visa.value;
+vue_costo= document.frmVuelo.costo.value;
 vue_estadoLog = document.frmVuelo.estado.value;
 rut_id = document.frmVuelo.ruta1.value;
 avi_id = document.frmVuelo.avion1.value;
@@ -136,5 +137,5 @@ ajax.onreadystatechange=function() {
 		}
 	}
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-ajax.send("vue_id="+vue_id+"&vue_fechaVLlegada="+vue_fechaVLlegada+"&vue_fechaVSalida="+vue_fechaVSalida+"&vue_horaVLlegada="+vue_horaVLlegada+"&vue_horaVSalida="+vue_horaVSalida+"&vue_tipo="+vue_tipo+"&vue_visa="+vue_visa+"&vue_estadoLog="+vue_estadoLog+"&rut_id="+rut_id+"&avi_id="+avi_id)
+ajax.send("vue_id="+vue_id+"&vue_fechaVLlegada="+vue_fechaVLlegada+"&vue_fechaVSalida="+vue_fechaVSalida+"&vue_horaVLlegada="+vue_horaVLlegada+"&vue_horaVSalida="+vue_horaVSalida+"&vue_tipo="+vue_tipo+"&vue_visa="+vue_visa+"&vue_costo="+vue_costo+"&vue_estadoLog="+vue_estadoLog+"&rut_id="+rut_id+"&avi_id="+avi_id)
 }
