@@ -88,9 +88,15 @@
 
 									echo "<form name='form' id='form' class='form-horizontal' enctype='multipart/form-data' action='usuario/log.php' method='POST'>
 
-						    <input  type='text'  style=' width: 150px ; height: 22px ;color: black' class='form-control' name='txtusuario'  placeholder='Ingresa tu cédula'>
-						    <input  type='password' style=' width: 150px ; height: 22px ;color: black' class='form-control' name='txtpassword' placeholder='Ingresa tu contraseña'>
-						     <input name='login' class='button2' type='submit' value='Entrar'>
+						    <input name='login' class='button2' type='submit' value='Entrar'>
+						    <input  type='text'  style=' width: 150px ; height: 22px ;color: black' class='form-control' name='txtusuario'  placeholder='Ingresa tu cédula'> 
+						    <input  type='password' style=' width: 150px ; height: 22px ;color: black' class='form-control' name='txtpassword' placeholder='Ingresa tu contraseña'> <br>
+						    
+						    
+						    <a href='index-1.html' style='color:white'>Registrate</a>
+
+						    
+
 							</form>  ";
 								}
 							?> 
@@ -98,11 +104,11 @@
 					</nav>
 					<nav>
 						<ul id="menu">
-							<li id="menu_active"><a href="index.html">Home</a></li>
-							<li><a href="index-1.html">Our Aircraft</a></li>
-							<li><a href="index-2.html">Safety</a></li>
-							<li><a href="index-3.html">Charters</a></li>
-							<li><a href="index-4.html">Contacts</a></li>
+							<li id="menu_active"><a href="index.html">Inicio</a></li>
+							<li><a href="index-1.html">Vuelos</a></li>
+							<li><a href="index-2.html">Destinos</a></li>
+							<li><a href="index-3.html">Noticias</a></li>
+							<li><a href="index-4.html">Contactos</a></li>
 						</ul>
 					</nav>
 				</div>
