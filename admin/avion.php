@@ -271,23 +271,13 @@
     }
 
       function EditarClase(id, tipo, asientoInicio, asientoFin,estado){
-      alert("si");
       accion = 'E';
       cla_id = id;
       document.frmClase.tipo.value = tipo;
       document.frmClase.asientoInicio.value = asientoInicio;
       document.frmClase.asientoFin.value = asientoFin;
       document.frmClase.estado.value = estado;
-      $('#clases').modal('show');
-    }
-
-    function EditarClase(hola){
-      accion = 'N';
-      document.frmClase.tipo.value="";
-      document.frmClase.asientoInicio.value = "";
-      document.frmClase.asientoFin.value = "";
-      document.frmClase.estado.value = "";
-      $('#clases').modal('show');
+      $('#resultadoclases').modal("hidden");
     }
 
 
