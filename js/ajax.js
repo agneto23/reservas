@@ -139,3 +139,29 @@ ajax.onreadystatechange=function() {
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 ajax.send("vue_id="+vue_id+"&vue_fechaVLlegada="+vue_fechaVLlegada+"&vue_fechaVSalida="+vue_fechaVSalida+"&vue_horaVLlegada="+vue_horaVLlegada+"&vue_horaVSalida="+vue_horaVSalida+"&vue_tipo="+vue_tipo+"&vue_visa="+vue_visa+"&vue_costo="+vue_costo+"&vue_estadoLog="+vue_estadoLog+"&rut_id="+rut_id+"&avi_id="+avi_id)
 }
+
+
+
+function Registrar_Clase(cla_id, avi_id,accion){
+	
+tipo = document.frmClase.tipo.value;
+asientoInicio = document.frmClase.asientoInicio.value;
+asientofin = document.frmClase.asientoFin.value;
+estado = document.frmClase.estado.value;
+
+ajax = objetoAjax();
+if(accion=='N'){
+ajax.open("POST", "../baseDatos/Registrar_Clase.php", true);
+}else if(accion=='E'){
+ajax.open("POST", "../baseDatos/Actualizar_Clase.php", true);
+}
+ajax.onreadystatechange=function() {
+		if (ajax.readyState==4) {
+			alert('Los datos fueron guardados con exito!');
+      window.location.reload(true);
+		}
+	}
+
+ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+ajax.send("cla_id="+cla_id+"&cla_tipo="+tipo+"&cla_asientoInicio="+asientoInicio+"&cla_asientoFin="+asientofin+"&cla_estadoLog="+estado+"&avi_id="+avi_id)
+}

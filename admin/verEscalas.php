@@ -35,6 +35,17 @@
 
 
 
+           <table class='table'>
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Tipo</th>
+              <th>Asiento Inicio</th>
+              <th>Asiento Fin</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
            
               <tr>
                 <td>".$id."</td>
@@ -44,14 +55,21 @@
                 <td>".$estado."</td>
                 
 
+                 
                 <td>
                   <div class='btn-group'>
-                    <button type='button' class='btn btn-info btn-xs' onclick='EditarClase('".$id."','".$tipo."','".$asientoi."','".$asientof."','".$estado."');'>
+                    <button type='button' class='btn btn-info btn-xs'>
                     <span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Actualizar
                     </button>   
                   </div>
                 </td>
               </tr>
+              
+
+              
+            
+          </tbody>
+        </table>
 
 
             ";

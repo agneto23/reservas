@@ -66,7 +66,7 @@
                       <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                      <li onclick="NuevaClase();"><a >Agregar Clase</a></li>
+                      <li onclick="NuevaClase('<?php print($row->avi_id); ?>');"><a >Agregar Clase</a></li>
                       <li class="divider"></li>
                       <li onclick="verclases('<?php print($row->avi_id); ?>');"><a >Ver Clases</a></li>
                     </ul>
@@ -166,11 +166,6 @@
                   <input name="asientoFin" class="form-control" required>
                 </div>
 
-                <div class="form-group"><br>
-                  <label>Costo</label>
-                  <input name="costo" class="form-control" required>
-                </div>
-
                 <div class="form-group">
                   <label>Estado</label>
                   <SELECT NAME="estado" class="form-control"> 
@@ -183,7 +178,7 @@
               
             </form>
             <div class="modal-footer">
-              <button type="button" class="btn btn-info" onClick="Registrar_Avion(avi_id,accion); return false">
+              <button type="button" class="btn btn-info" onClick="Registrar_Clase(cla_id, avionIDClase, accion); return false">
                   <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Guardar
               </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancelar</button>
@@ -205,14 +200,21 @@
             </div>
              <form role="form" action="" name="frmListaClase">
              <input type="hidden" name="codigoAvion"  id="codigoAvion" />
-            <div class="panel-body">
-
-              <div id="resultadoclases"></div>
-             </div>
-
+            
+             <table class='table'>
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Tipo</th>
+              <th>Asiento Inicio</th>
+              <th>Asiento Fin</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody  id="resultadoclases">
+          </tbody>
+        </table>      
       </div>
-
-
     </form>
           </div>
         </div>
@@ -228,6 +230,8 @@
     <script type="text/javascript">
     var accion;
     var avi_id;
+    var avionIDClase;
+    var cla_id;
     function Nuevo(){
       accion = 'N';
       document.frmAeropuerto.nombre.value = "";
@@ -241,13 +245,13 @@
       $('#modal').modal('show');
     }
 
-    function NuevaClase(){
+    function NuevaClase(idavion){
       accion = 'N';
+      avionIDClase=idavion;
       document.frmClase.tipo.value="";
       document.frmClase.asientoInicio.value = "";
       document.frmClase.asientoFin.value = "";
       document.frmClase.estado.value = "";
-      document.frmClase.costo.value = "";
       $('#clases').modal('show');
     }
 
@@ -266,6 +270,25 @@
       $("#resultadoBusqueda").html("");
     }
 
+      function EditarClase(id, tipo, asientoInicio, asientoFin,estado){
+      alert("si");
+      accion = 'E';
+      cla_id = id;
+      document.frmClase.tipo.value = tipo;
+      document.frmClase.asientoInicio.value = asientoInicio;
+      document.frmClase.asientoFin.value = asientoFin;
+      document.frmClase.estado.value = estado;
+      $('#clases').modal('show');
+    }
+
+    function EditarClase(hola){
+      accion = 'N';
+      document.frmClase.tipo.value="";
+      document.frmClase.asientoInicio.value = "";
+      document.frmClase.asientoFin.value = "";
+      document.frmClase.estado.value = "";
+      $('#clases').modal('show');
+    }
 
 
     function buscar() 
