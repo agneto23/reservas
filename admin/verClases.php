@@ -46,7 +46,7 @@
 
                 <td>
                   <div class='btn-group'>
-                    <button type='button' class='btn btn-info btn-xs' onclick='EditarClase('".$id."','".$tipo."','".$asientoi."','".$asientof."','".$estado."');'>
+                    <button type='button' class='btn btn-info btn-xs' onclick=EditarClase('".$id."','".$tipo."','".$asientoi."','".$asientof."','".$estado."')>
                     <span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Actualizar
                     </button>   
                   </div>
