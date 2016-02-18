@@ -36,6 +36,8 @@
         
     <script type="text/javascript" src="../js/bootstrap-datetimepicker.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap-datetimepicker.css">
+    <script type="text/javascript" src="js/bootbox.js"></script>
+          <script type="text/javascript" src="js/bootbox.min.js"></script>
 
     <!-- The fav icon -->
     <link rel="shortcut icon" href="../img/favicon.ico">

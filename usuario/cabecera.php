@@ -17,12 +17,13 @@
     <script type="text/javascript" src="js/jquery.countdown.js"></script>
    
     <script type="text/javascript" src="js/ajax.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
         
     <script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.css">
     <script type="text/javascript" src="js/bootbox.js"></script>
-		  <script type="text/javascript" src="js/bootbox.min.js"></script>
+          <script type="text/javascript" src="js/bootbox.min.js"></script>
 
  
 
@@ -30,7 +31,7 @@
 <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
 <link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-<script type="text/javascript" src="js/jquery-1.4.2.js" ></script>
+
 <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/cufon-replace.js"></script> 
 <script type="text/javascript" src="js/Myriad_Pro_italic_600.font.js"></script>
@@ -93,7 +94,7 @@
 						    <input  type='password' style=' width: 150px ; height: 22px ;color: black' class='form-control' name='txtpassword' placeholder='Ingresa tu contraseña'> <br>
 						    
 						    
-						    <a href='index-1.html' style='color:white'>Registrate</a>
+						    <a href='registra.php' style='color:white'>Registrate</a>
 
 						    
 
