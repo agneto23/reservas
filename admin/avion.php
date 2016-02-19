@@ -152,9 +152,12 @@
             <form role="form" action="" name="frmClase">
               <div class="col-lg-12">
                 
-                <div class="form-group"><br>
+                <div class="form-group">
                   <label>Tipo de Clase</label>
-                  <input name="tipo" class="form-control" required>
+                  <SELECT NAME="tipo" class="form-control"> 
+                  <OPTION VALUE="Premiun">Premiun</OPTION>
+                  <OPTION VALUE="Economic">Economic</OPTION>
+                  </SELECT>
                 </div>
 
                 <div class="form-group"><br>
