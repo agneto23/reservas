@@ -3,6 +3,7 @@
  	$conexion = mysqli_connect("127.0.0.1","root","","reserva");
 	mysqli_set_charset($conexion, "utf8");
 	$consultaBusqueda = $_POST['valorBusqueda'];
+	$consultaCiudad = $_POST['valorBusquedaO'];
 
 	//Filtro anti-XSS
 	$caracteres_malos = array("<", ">", "\"", "'", "/", "<", ">", "'", "/");
@@ -37,6 +38,8 @@
 		//La variable $resultado contiene el array que se genera en la consulta, así que obtenemos los datos y los mostramos en un bucle
 
 		while($resultados = mysqli_fetch_array($consulta)) {
+			
+			if($consultaCiudad!= $resultados['aer_ciudad']){
 			$aer_ciudad = $resultados['aer_ciudad'];
 			
 			$id = $resultados['aer_id'];
@@ -44,7 +47,7 @@
 			$mensaje .= "
   			<li onclick='valor(this)' id='".$aer_ciudad."' name='".$aer_ciudad."' value='".$id."' class='list-group-item search-query'>".$aer_ciudad."</li>";
   			
-
+  		};
 		};//Fin while $resultados
 
 	}; //Fin else $filas

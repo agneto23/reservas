@@ -157,8 +157,9 @@
         OrigenDestino=OD;
         if(OrigenDestino=="1"){
         textoBusqueda = $("input#ciudadOrigenC").val();
+        textoCiudad = $("input#ciudadDestinoC").val();
         if (textoBusqueda != "") {
-            $.post("buscarCiudadRuta.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+            $.post("buscarCiudadRuta.php", {valorBusqueda: textoBusqueda, valorBusquedaO: textoCiudad}, function(mensaje) {
               $("#resultadoBusquedaOrigen").html(mensaje);
             }); 
         } else { 
@@ -168,9 +169,9 @@
 
     if(OrigenDestino=="2"){
         textoBusqueda = $("input#ciudadDestinoC").val();
-
+        textoCiudad = $("input#ciudadOrigenC").val();
         if (textoBusqueda != "") {
-            $.post("buscarCiudadRuta.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+            $.post("buscarCiudadRuta.php", {valorBusqueda: textoBusqueda,  valorBusquedaO: textoCiudad}, function(mensaje) {
               $("#resultadoBusquedaDestino").html(mensaje);
             }); 
         } else { 
