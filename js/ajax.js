@@ -29,21 +29,15 @@ telefono = document.ContactForm.telefono.value;
 correo = document.ContactForm.correo.value;
 contra = document.ContactForm.contra.value;
 ccontra = document.ContactForm.c_contra.value;
-val = document.ContactForm.cedulaval.value;
-
-alert("ya");
-otra = val.replace("[","");
-otra1 = otra.replace("]","");
-
-ya = otra1.split(",");
 
 
+alert(cedula+nombre+apellido+direccion+telefono+correo+contra+ccontra);
 		
 				
-if(validar(cedula,nombre,apellido,direccion,telefono,correo,contra,ccontra,ya)){
+if(validar(cedula,nombre,apellido,direccion,telefono,correo,contra,ccontra)){
 
 ajax = objetoAjax();
-ajax.open("POST", "php/registrar_cliente.php", true);
+ajax.open("POST", "usuario/registrar_cliente.php", true);
 
 ajax.onreadystatechange=function() {
 		if (ajax.readyState==4) {
@@ -52,6 +46,7 @@ ajax.onreadystatechange=function() {
 		}
 	}
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+alert("simon loco");
 ajax.send("cedula="+cedula+"&nombre="+nombre+"&apellido="+apellido+"&direccion="+direccion+"&telefono="+telefono+"&correo="+correo+"&contra="+contra);
 
 }
@@ -101,16 +96,7 @@ function validar(cedula,nombre,apellido,direccion,telefono,correo,contra,ccontra
 			} 
 	
 	
-	for(var i = 0; i < ya.length ; i++){
-		cedulacam = '"'+cedula+'"';
-		
-		if(cedulacam==ya[i]){
-			var box = bootbox.alert("La cedula ya existe");
-                                    box.find('.modal-content').css({ color: '#0000', 'font-size': '1.5em'});
-			return false;
-		}
-		
-	}
+	
 	
 	
 	if(cedula.length == 10){

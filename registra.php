@@ -35,11 +35,11 @@
 						Correo:<br />
 					</div>
 					<div class="wrapper">
-						<div class="bg"><input name="contra" class="input" /></div>
+						<div class="bg"><input name="contra" type="password" class="input" /></div>
 						Contraseña:<br />
 					</div>
 					<div class="wrapper">
-						<div class="bg"><input name="c_contra" class="input" /></div>
+						<div class="bg"><input name="c_contra" type="password" class="input" /></div>
 						Confirmar Contraseña:<br />
 					</div>
 					<input name="cedulaval" class="hidden" /></div>
