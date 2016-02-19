@@ -22,7 +22,7 @@
 
 
 
-	$consulta = mysqli_query($conexion, "select * from avion where  avi_aerolinea like '%$consultaBusqueda%'and avi_EstadoLog = 'T'");
+	$consulta = mysqli_query($conexion, "select * from avion where  avi_aerolinea like '%$consultaBusqueda%' or avi_nombre like '%$consultaBusqueda%' and avi_EstadoLog = 'T'");
 
 		//Obtiene la cantidad de filas que hay en la consulta
 	$filas = mysqli_num_rows($consulta);
@@ -37,12 +37,12 @@
 		//La variable $resultado contiene el array que se genera en la consulta, así que obtenemos los datos y los mostramos en un bucle
 
 		while($resultados = mysqli_fetch_array($consulta)) {
-			$avi_asientos = $resultados['avi_asientos'];
+			$avi_nombre = $resultados['avi_nombre'];
 			$avi_aerolinea = $resultados['avi_aerolinea'];
 			$id = $resultados['avi_id'];
 			//Output
 			$mensaje .= "
-  			<li onclick='valor(this)' id='".$avi_aerolinea."' name='".$avi_aerolinea."' value='".$id."' class='list-group-item search-query'>".$avi_aerolinea." Asientos: ".$avi_asientos."</li>";
+  			<li onclick='valor(this)' id='".$avi_nombre."' name='".$avi_nombre."' value='".$id."' class='list-group-item search-query'>".$avi_nombre."  -->  ".$avi_aerolinea."</li>";
   			
 
 		};//Fin while $resultados
