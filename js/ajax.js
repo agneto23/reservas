@@ -31,7 +31,7 @@ contra = document.ContactForm.contra.value;
 ccontra = document.ContactForm.c_contra.value;
 
 
-alert(cedula+nombre+apellido+direccion+telefono+correo+contra+ccontra);
+
 		
 				
 if(validar(cedula,nombre,apellido,direccion,telefono,correo,contra,ccontra)){
@@ -46,7 +46,7 @@ ajax.onreadystatechange=function() {
 		}
 	}
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-alert("simon loco");
+
 ajax.send("cedula="+cedula+"&nombre="+nombre+"&apellido="+apellido+"&direccion="+direccion+"&telefono="+telefono+"&correo="+correo+"&contra="+contra);
 
 }
