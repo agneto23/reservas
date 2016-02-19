@@ -53,7 +53,7 @@
 	<header>
 			<div class="wrapper">
 				<h1>
-					<a href="index.html" id="logo">Air Lines</a><span id="slogan">Viajes Internacionales</span>
+					<a href="index.php" id="logo">Air Lines</a><span id="slogan">Viajes Internacionales</span>
 				</h1>
 				<div class="right">
 					<nav>
@@ -68,16 +68,16 @@
 
 										echo "<form name='form' id='form' class='form-horizontal' enctype='multipart/form-data' action='usuario/destruir.php' method='POST'>
 
-						    <label> <font color='white' face='Helvetica' size=5>  Usuario  </font></label>
-						    <label> <font color='white' face='Helvetica' size=5>  Usuario  </font></label>
-						    <label> <font color='white' face='Helvetica' size=5> &nbsp; &nbsp; </font></label>
-						    
-						     <input name='login'  class='button2' type='submit' value='Salir'>
-							</form>  ";
-									  
+									    <label> <font color='white' face='Helvetica' size=5>  Usuario  </font></label>
+									    <label> <font color='white' face='Helvetica' size=5>  Usuario  </font></label>
+									    <label> <font color='white' face='Helvetica' size=5> &nbsp; &nbsp; </font></label>
+									    
+									     <input name='login'  class='button2' type='submit' value='Salir'>
+										</form>  ";
+												  
 							?>	
 
-							
+										
 
 
 							<?php
@@ -89,16 +89,16 @@
 
 									echo "<form name='form' id='form' class='form-horizontal' enctype='multipart/form-data' action='usuario/log.php' method='POST'>
 
-						    <input name='login' class='button2' type='submit' value='Entrar'>
-						    <input  type='text'  style=' width: 150px ; height: 22px ;color: black' class='form-control' name='txtusuario'  placeholder='Ingresa tu cédula'> 
-						    <input  type='password' style=' width: 150px ; height: 22px ;color: black' class='form-control' name='txtpassword' placeholder='Ingresa tu contraseña'> <br>
-						    
-						    
-						    <a href='registra.php' style='color:white'>Registrate</a>
+								    <input name='login' class='button2' type='submit' value='Entrar'>
+								    <input  type='text'  style=' width: 150px ; height: 22px ;color: black' class='form-control' name='txtusuario'  placeholder='Ingresa tu cédula'> 
+								    <input  type='password' style=' width: 150px ; height: 22px ;color: black' class='form-control' name='txtpassword' placeholder='Ingresa tu contraseña'> <br>
+								    
+								    
+								    <a href='registra.php' style='color:white'>Registrate</a>
 
-						    
+								    
 
-							</form>  ";
+									</form>  ";
 								}
 							?> 
 						</ul>
