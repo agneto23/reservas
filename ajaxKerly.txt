@@ -1,13 +1,18 @@
-function Registrar_Ruta(rut_id, accion){
-ciudadOrigen = document.frmRuta.ciudadOrigenC1.value;
-ciudadDestino = document.frmRuta.ciudadDestinoC1.value;
-estado = document.frmRuta.estado.value;
+function Registrar_Escala(esc_id, vue_id,accion){
+
+fechaELlegada = document.frmEscala.fllegada.value;
+fechaESalida = document.frmEscala.fsalida.value;
+horaELlegada = document.frmEscala.hllegada.value;
+horaESalida = document.frmEscala.hsalida.value;
+estadoLog = document.frmEscala.estado.value;
+ciudad1 = document.frmEscala.ciudad.value;
+
 
 ajax = objetoAjax();
 if(accion=='N'){
-ajax.open("POST", "../baseDatos/Registrar_Ruta.php", true);
+ajax.open("POST", "../baseDatos/Registrar_Escala.php", true);
 }else if(accion=='E'){
-ajax.open("POST", "../baseDatos/Actualizar_Ruta.php", true);
+ajax.open("POST", "../baseDatos/Actualizar_Escala.php", true);
 }
 ajax.onreadystatechange=function() {
 		if (ajax.readyState==4) {
@@ -15,6 +20,7 @@ ajax.onreadystatechange=function() {
       window.location.reload(true);
 		}
 	}
+
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-ajax.send("rut_id="+rut_id+"&rut_estadoLog="+estado+"&aer_id_origen="+ciudadOrigen+"&aer_id_destino="+ciudadDestino)
+ajax.send("esc_id="+esc_id+"&esc_fechaELlegada="+fechaELlegada+"&esc_fechaESalida="+fechaESalida+"&esc_horaELlegada="+horaELlegada+"&esc_horaESalida="+horaESalida+"&esc_estadoLog="+estadoLog+"&vue_id="+vue_id, "&aer_id="+ciudad1)
 }
