@@ -61,10 +61,16 @@
 							
 							<?php
 
+								$conexion = mysqli_connect("127.0.0.1","root","","reserva");
+								mysqli_set_charset($conexion, "utf8");
+
+
 							   session_start();
 
 								
 								if (isset($_SESSION['admin'])) {
+
+
 
 										echo "<form name='form' id='form' class='form-horizontal' enctype='multipart/form-data' action='usuario/destruir.php' method='POST'>
 
@@ -105,11 +111,11 @@
 					</nav>
 					<nav>
 						<ul id="menu">
-							<li id="menu_active"><a href="index.html">Inicio</a></li>
-							<li><a href="index-1.html">Vuelos</a></li>
-							<li><a href="index-2.html">Destinos</a></li>
-							<li><a href="index-3.html">Noticias</a></li>
-							<li><a href="index-4.html">Contactos</a></li>
+							<li id="menu_active"><a href="index.php">Inicio</a></li>
+							<li><a href="vuelos.php">Vuelos</a></li>
+							<li><a href="destinos.php">Destinos</a></li>
+							<li><a href="noticias.php">Noticias</a></li>
+							<li><a href="contactanos.php">Contactos</a></li>
 						</ul>
 					</nav>
 				</div>
