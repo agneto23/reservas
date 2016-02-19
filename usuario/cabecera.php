@@ -86,8 +86,6 @@
 
 										echo "<form name='form' id='form' class='form-horizontal' enctype='multipart/form-data' action='usuario/destruir.php' method='POST'>
 
-									    <label> <font color='white' face='Helvetica' size=5>  Usuario:  </font></label>
-									    <label> <font color='white' face='Helvetica' size=5>  $name  </font></label>
 									    <label> <font color='white' face='Helvetica' size=5> &nbsp; &nbsp; </font></label>
 									    
 									     <input name='login'  class='button2' type='submit' value='Salir'>
