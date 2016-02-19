@@ -1,7 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   
+<head>   
     <meta charset="utf-8">
     <title>Reservas</title>
     
@@ -48,6 +48,12 @@
 </head>
 
 <body>
+
+    <?php
+    session_start();
+    if (isset($_SESSION['admin'])){
+    if ($_SESSION['admin']=='0000000001'){
+    ?>
     <!-- topbar starts -->
     <div class="navbar navbar-inverse" role="navigation">
 
@@ -70,7 +76,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="#">Profile</a></li>
                     <li class="divider"></li>
-                    <li><a href="login.html">Logout</a></li>
+                    <li><a href="../index.php">Salir al Inicio</a></li>
                 </ul>
             </div>
             <!-- user dropdown ends -->
@@ -122,6 +128,11 @@
         <!-- left menu ends -->
 
       
-
+<?php
+    }
+}else{
+        echo '<meta http-equiv="refresh" content="1; url=../index.php">'; 
+    }
+?>
 </body>
 </html>
