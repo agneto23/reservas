@@ -62,7 +62,7 @@
                 <td><?php print($row->rut_estadoLog); ?></td>
                 <td>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-info" onClick="Editar('<?php print($row->rut_id); ?>','<?php print($row->aer_id_origen); ?>','<?php print($ciudadOrigenAer); ?>','<?php print($row->aer_id_destino); ?>','<?php print($ciudadDestinoAer); ?>','<?php print($row->rut_estadoLog);?>');">
+                    <button type="button" class="btn btn-info btn-xs" onClick="Editar('<?php print($row->rut_id); ?>','<?php print($row->aer_id_origen); ?>','<?php print($ciudadOrigenAer); ?>','<?php print($row->aer_id_destino); ?>','<?php print($ciudadDestinoAer); ?>','<?php print($row->rut_estadoLog);?>');">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
                     </button>                    
                   </div>

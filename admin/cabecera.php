@@ -98,9 +98,9 @@
                     </div>
                     <ul class="nav nav-pills nav-stacked main-menu">
                         <li class="nav-header">Menu</li>
-                        <li><a class="ajax-link" href="index.html"><i class="glyphicon glyphicon-home"></i><span> Reservas</span></a>
+                        <li><a class="ajax-link" href="reserva.php"><i class="glyphicon glyphicon-registration-mark"></i><span> Reservas</span></a>
                         </li>
-                        <li><a class="ajax-link" href="ui.html"><i class="glyphicon glyphicon-user"></i><span> Clientes</span></a>
+                        <li><a class="ajax-link" href="cliente.php"><i class="glyphicon glyphicon-user"></i><span> Clientes</span></a>
                         </li>
                         <li><a class="ajax-link" href="vuelo.php"><i class="glyphicon glyphicon-send"></i><span> Vuelo</span></a>
                         </li>
@@ -109,13 +109,9 @@
                         <li><a class="ajax-link" href="ruta.php"><i class="glyphicon glyphicon-transfer"></i><span> Ruta</span></a>
                         </li>
                         </li>
-                        <li><a class="ajax-link" href="gallery.html"><i class="glyphicon glyphicon-picture"></i><span> Escala</span></a>
                         </li>
+                        <li><a class="ajax-link" href="aeropuerto.php"><i class="glyphicon glyphicon-road"></i><span> Aeropuerto</span></a>
                         </li>
-                        <li><a class="ajax-link" href="aeropuerto.php"><i class="glyphicon glyphicon-picture"></i><span> Aeropuerto</span></a>
-                        </li>
-                        </li>
-                        <li><a class="ajax-link" href="clase.php"><i class="glyphicon glyphicon-picture"></i><span> Clase</span></a>
                         </li>
                     </ul>
                 </div>
