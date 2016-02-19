@@ -31,13 +31,13 @@
             foreach($rows as $row){
               ?>
               <tr>
-                <td><?php print($row->cli_id); ?></td>
+                <td><?php print($row->cli_cedula); ?></td>
                 <td><?php print($row->cli_nombre); ?></td>
                 <td><?php print($row->cli_apellido); ?></td>
                 <td><?php print($row->cli_direccion); ?></td>
                 <td><?php print($row->cli_telefono); ?></td>
                 <td><?php print($row->cli_correo); ?></td>
-                <td><?php print("********"); ?></td>
+                <td><?php print($row->cli_contrasena); ?></td>
               </tr>
               <?php
             }
