@@ -190,6 +190,33 @@ function validar(cedula,nombre,apellido,direccion,telefono,correo,contra,ccontra
 
 }
 
+function Registrar_Escala(esc_id, vue_id,accion){
+
+fechaELlegada = document.frmEscala.fllegada.value;
+fechaESalida = document.frmEscala.fsalida.value;
+horaELlegada = document.frmEscala.hllegada.value;
+horaESalida = document.frmEscala.hsalida.value;
+estadoLog = document.frmEscala.estado.value;
+ciudad1 = document.frmEscala.ciudad.value;
+
+
+ajax = objetoAjax();
+if(accion=='N'){
+ajax.open("POST", "../baseDatos/Registrar_Escala.php", true);
+}else if(accion=='E'){
+ajax.open("POST", "../baseDatos/Actualizar_Escala.php", true);
+}
+ajax.onreadystatechange=function() {
+		if (ajax.readyState==4) {
+			alert('Los datos fueron guardados con exito!');
+      window.location.reload(true);
+		}
+	}
+
+ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+ajax.send("esc_id="+esc_id+"&esc_fechaELlegada="+fechaELlegada+"&esc_fechaESalida="+fechaESalida+"&esc_horaELlegada="+horaELlegada+"&esc_horaESalida="+horaESalida+"&esc_estadoLog="+estadoLog+"&vue_id="+vue_id, "&aer_id="+ciudad1)
+}
+
 
 function Registrar_Aeropuerto(aer_id, accion){
 nombre = document.frmAeropuerto.nombre.value;
