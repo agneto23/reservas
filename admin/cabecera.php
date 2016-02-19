@@ -98,7 +98,7 @@
                     </div>
                     <ul class="nav nav-pills nav-stacked main-menu">
                         <li class="nav-header">Menu</li>
-                        <li><a class="ajax-link" href="index.html"><i class="glyphicon glyphicon-home"></i><span> Reservas</span></a>
+                        <li><a class="ajax-link" href="index.html"><i class="glyphicon glyphicon-registration-mark"></i><span> Reservas</span></a>
                         </li>
                         <li><a class="ajax-link" href="ui.html"><i class="glyphicon glyphicon-user"></i><span> Clientes</span></a>
                         </li>
@@ -110,7 +110,7 @@
                         </li>
                         </li>
                         </li>
-                        <li><a class="ajax-link" href="aeropuerto.php"><i class="glyphicon glyphicon-picture"></i><span> Aeropuerto</span></a>
+                        <li><a class="ajax-link" href="aeropuerto.php"><i class="glyphicon glyphicon-road"></i><span> Aeropuerto</span></a>
                         </li>
                         </li>
                     </ul>
