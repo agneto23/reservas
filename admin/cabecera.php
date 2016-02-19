@@ -41,14 +41,15 @@
 
     <!-- The fav icon -->
     <link rel="shortcut icon" href="../img/favicon.ico">
-	
-	
+    
+
+    
 
 </head>
 
 <body>
     <!-- topbar starts -->
-    <div class="navbar navbar-default" role="navigation">
+    <div class="navbar navbar-inverse" role="navigation">
 
         <div class="navbar-inner">
             <button type="button" class="navbar-toggle pull-left animated flip">
