@@ -62,20 +62,32 @@
 							<?php
 
 								$conexion = mysqli_connect("127.0.0.1","root","","reserva");
-								mysqli_set_charset($conexion, "utf8");
-
-
+								mysqli_set_charset($conexion, "utf8");	
 							   session_start();
 
 								
 								if (isset($_SESSION['admin'])) {
 
+										$ced = $_SESSION['admin'];
+										$consulta = mysqli_query($conexion, "select * from cliente where cli_id = $ced");	
+										$filas = mysqli_num_rows($consulta);
 
+										if ($filas === 0) {
+											$mensaje = "<p>No se encontraron resultados</p>";
+										} else {
+											
+											while($resultados = mysqli_fetch_array($consulta)) {
+												$c_nombre = $resultados['cli_nombre'];
+												$c_apellido = $resultados['cli_apellido'];
+												
+												$name = $c_nombre." ".$c_apellido;
+											}
+										}
 
 										echo "<form name='form' id='form' class='form-horizontal' enctype='multipart/form-data' action='usuario/destruir.php' method='POST'>
 
-									    <label> <font color='white' face='Helvetica' size=5>  Usuario  </font></label>
-									    <label> <font color='white' face='Helvetica' size=5>  Usuario  </font></label>
+									    <label> <font color='white' face='Helvetica' size=5>  Usuario:  </font></label>
+									    <label> <font color='white' face='Helvetica' size=5>  $name  </font></label>
 									    <label> <font color='white' face='Helvetica' size=5> &nbsp; &nbsp; </font></label>
 									    
 									     <input name='login'  class='button2' type='submit' value='Salir'>
