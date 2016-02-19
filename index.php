@@ -81,14 +81,14 @@ $(document).ready(function(){
     <div id = "carousel1" style="width:960px; height:280px;background:none;overflow:scroll; margin-top: 20px">            
         <!-- All images with class of "cloudcarousel" will be turned into carousel items -->
         <!-- You can place links around these images -->
-        <a href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/01.jpg" alt="CSS Templates 1" title="Website Templates 1" /></a>
-        <a href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/02.jpg" alt="CSS Templates 2" title="Website Templates 2" /></a>
-        <a href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/03.jpg" alt="CSS Templates 3" title="Website Templates 3" /></a>
-        <a href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/04.jpg" alt="CSS Templates 4" title="Website Templates 4" /></a>
-        <a  href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/05.jpg" alt="Flash Templates 1" title="Flash Templates 1" /></a>
-        <a href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/06.jpg" alt="Flash Templates 2" title="Flash Templates 2" /></a>
-        <a href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/07.jpg" alt="Flash Templates 3" title="Flash Templates 3" /></a>
-        <a href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/08.jpg" alt="Flash Templates 4" title="Flash Templates 4" /></a>
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/01.jpg" alt="CSS Templates 1" title="España" /></a>
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/02.jpg" alt="CSS Templates 2" title="Estados Unidos" /></a>
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/03.jpg" alt="CSS Templates 3" title="Lima" /></a>
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/04.jpg" alt="CSS Templates 4" title="China" /></a>
+        <a  href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/05.jpg" alt="Flash Templates 1" title="Italia" /></a>
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/06.jpg" alt="Flash Templates 2" title="Chile" /></a>
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/07.jpg" alt="Flash Templates 3" title="Brazil" /></a>
+        <a href="#" rel="lightbox"><img class="cloudcarousel" src="images/slider/08.jpg" alt="Flash Templates 4" title="Mexico" /></a>
     </div>
     
     <!-- Define left and right buttons. -->
