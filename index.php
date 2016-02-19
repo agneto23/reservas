@@ -102,7 +102,7 @@ $(document).ready(function(){
 
 			<h2>Agencias de Viaje "Vuela Hoy"</h2>
 			<p>El mejor ambiente para volar lo encuentra en Vuela Hoy, donde encontraras acojedores asientos y disfrutar de la mejor atención y sentirte en las nubes.</p>
-			<p>Vive Hoy, Ama Hoy, Respeta Hoy, VIAJA HOY!</p>
+			<p>Vive Hoy, Ama Hoy, Respeta Hoy, VUELA HOY!</p>
 			
 	</center>
 <?php include 'usuario/piepagina.php' ?>
