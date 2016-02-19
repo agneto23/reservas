@@ -13,10 +13,7 @@
             <tr>
               <th>Id</th>
               <th>Codigo</th>
-              <th>Origen</th>
-              <th>Destino</th>
               <th>Precio Total</th>
-              <th>Pago</th>
               <th>Estado</th>
               <th>Vuelo</th>
               <th>Cliente</th>
@@ -36,10 +33,7 @@
               <tr>
                 <td><?php print($row->res_id); ?></td>
                 <td><?php print($row->res_codigo); ?></td>
-                <td><?php print($row->res_origen); ?></td>
-                <td><?php print($row->res_destino); ?></td>
                 <td><?php print($row->res_precioTotal); ?></td>
-                <td><?php print($row->res_Pago); ?></td>
                 <td><?php print($row->res_estadoLog); ?></td>
                 <td><?php print($row->vue_id); ?></td>
                 <td><?php print($row->cli_id); ?></td>
