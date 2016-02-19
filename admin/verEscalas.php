@@ -20,57 +20,41 @@
 	
 
 		
-            $sql3 = "SELECT * FROM  clase where avi_id=:codigoA";
+            $sql3 = "SELECT * FROM  Escala where vue_id=:codigoA";
             $stmt3 = $con->prepare($sql3);
             $result3 = $stmt3->execute(array(':codigoA'=>($cod)));
             $rows3 = $stmt3->fetchAll(\PDO::FETCH_OBJ);
             foreach($rows3 as $row3){
 
-            $id = $row3->cla_id;
-            $tipo = $row3->cla_tipo;
-            $asientoi = $row3->cla_asientoInicio;
-            $asientof = $row3->cla_asientoFin;
-            $estado = $row3->cla_estadoLog;	
+            $id = $row3->esc_id;
+            $fsalida = $row3->esc_fechaESalida;
+            $fllegada = $row3->esc_fechaELlegada;
+            $hsalida = $row3->esc_horaESalida;
+            $hllegada = $row3->esc_horaELlegada;
+            $estado = $row3->esc_estadoLog;
+            $ciudad = $row3->aer_id;	
             $mensaje .= "
 
 
-
-           <table class='table'>
-          <thead>
-            <tr>
-              <th>Codigo</th>
-              <th>Tipo</th>
-              <th>Asiento Inicio</th>
-              <th>Asiento Fin</th>
-              <th>Estado</th>
-            </tr>
-          </thead>
-          <tbody>
-           
+         
               <tr>
                 <td>".$id."</td>
-                <td>".$tipo."</td>
-                <td>".$asientoi."</td>
-                <td>".$asientof."</td>
+                <td>".$fsalida."</td>
+                <td>".$fllegada."</td>
+                <td>".$hsalida."</td>
+                <td>".$hllegada."</td>
                 <td>".$estado."</td>
-                
+                <td>".$ciudad."</td>
 
                  
                 <td>
                   <div class='btn-group'>
-                    <button type='button' class='btn btn-info btn-xs'>
+                    <button type='button' class='btn btn-info btn-xs')>
                     <span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Actualizar
                     </button>   
                   </div>
                 </td>
               </tr>
-              
-
-              
-            
-          </tbody>
-        </table>
-
 
             ";
 

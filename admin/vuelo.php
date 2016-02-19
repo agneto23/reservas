@@ -16,6 +16,7 @@
           <thead>
             <tr>
               <th>Codigo</th>
+              <th>Avion</th>
               <th>Fecha Salida</th>
               <th>Fecha Llegada</th>
               <th>Hora Salida</th>
@@ -25,7 +26,6 @@
               <th>Costo</th>
               <th>Estado</th>
               <th>Ruta</th>
-              <th>Avion</th>
             </tr>
           </thead>
           <tbody>
@@ -40,6 +40,19 @@
               ?>
               <tr>
                 <td><?php print($row->vue_id); ?></td>
+
+                <?php
+                $sql2 = "SELECT * FROM avion where avi_id=:avi_ids";
+                $stmt2 = $con->prepare($sql2);
+                $result2 = $stmt2->execute(array(':avi_ids'=>($row->avi_id)));
+                $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+                foreach($rows2 as $row2){
+                ?>
+                <td><?php print($row2->avi_nombre); $nombreavion=$row2->avi_nombre; ?></td>
+                <?php
+                }
+                ?>
+
                 <td><?php print($row->vue_fechaVSalida); ?></td>
                 <td><?php print($row->vue_fechaVLlegada); ?></td>
                 <td><?php print($row->vue_horaVSalida); ?></td>
@@ -84,37 +97,26 @@
                 }
                 ?>
 
-                <td><?php print($rutaOrigenNombre." - ".$rutaDestinoNombre); ?></td>
-
-                <?php
-                $sql2 = "SELECT * FROM avion where avi_id=:avi_ids";
-                $stmt2 = $con->prepare($sql2);
-                $result2 = $stmt2->execute(array(':avi_ids'=>($row->avi_id)));
-                $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
-                foreach($rows2 as $row2){
-                ?>
-                <td><?php print($row2->avi_nombre); $nombreavion=$row2->avi_nombre; ?></td>
-                <?php
-                }
-                ?>
+                <td><?php print($rutaOrigenNombre." - ".$rutaDestinoNombre); ?></td>           
+               
                 <td>
+                  <div class="btn-group">
+                    
+                    <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Escala
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li onclick="NuevaEscala('<?php print($row->vue_id); ?>');"><a >Agregar Escala</a></li>
+                      <li class="divider"></li>
+                      <li onclick="VerEscala('<?php print($row->vue_id); ?>');"><a >Ver Escalas</a></li>
+                    </ul>
+                  </div>
+                </td>
+                 <td>
                   <div class="btn-group">
                      <button type="button" class="btn btn-info btn-xs" onclick="Editar('<?php print($row->vue_id); ?>','<?php print($row->vue_fechaVLlegada); ?>','<?php print($row->vue_fechaVSalida);?>','<?php print($row->vue_horaVLlegada);?>','<?php print($row->vue_horaVSalida);?>','<?php print($row->vue_tipo);?>','<?php print($row->vue_visa);?>','<?php print($row->vue_costo);?>','<?php print($row->vue_estadoLog);?>','<?php print($row->rut_id);?>','<?php print($rutaOrigenNombre." - ".$rutaDestinoNombre);?>','<?php print($row->avi_id);?>','<?php print($nombreavion);?>');">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
                     </button>  
-                  </div>
-                </td>
-                <td>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-info btn-xs">Clases</button>
-                    <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li onclick="NuevaEscala();"><a >Agregar Escala</a></li>
-                      <li class="divider"></li>
-                      <li onclick="VerEscala('<?php print($row->vue_id); ?>');"><a >Ver Escalas</a></li>
-                    </ul>
                   </div>
                 </td>
               </tr>
@@ -216,27 +218,24 @@
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <div class="modal-title" > Escala del Vuelo</div>
             </div>
-            <form role="form" action="" name="frmClase">
+            <form role="form" action="" name="frmEscala">
               <div class="col-lg-12">
                 
-                <div class="form-group"><br>
-                  <label>Tipo de Clase</label>
-                  <input name="tipo" class="form-control" required>
+                 <div class="form-group">
+                  <label>Fecha Salida</label>
+                  <input type="date" name="fsalida" class="form-control" required>
                 </div>
-
                 <div class="form-group"><br>
-                  <label>Rango de Asientos - Inicio</label>
-                  <input name="asientoInicio" class="form-control" required>
+                  <label>Fecha Llegada</label>
+                 <input type="date" name="fllegada" class="form-control" required>
                 </div>
-
-                <div class="form-group"><br>
-                  <label>Rango de Asientos - Fin</label>
-                  <input name="asientoFin" class="form-control" required>
+                <div class="form-group">
+                  <label>Hora Salida</label>
+                  <input name="hsalida" type="time" class="form-control" required>
                 </div>
-
-                <div class="form-group"><br>
-                  <label>Costo</label>
-                  <input name="costo" class="form-control" required>
+                <div class="form-group">
+                  <label>Hora Llegada</label>
+                  <input name="hllegada" type="time" class="form-control" required>
                 </div>
 
                 <div class="form-group">
@@ -246,16 +245,55 @@
                   <OPTION VALUE="F">Inactivo</OPTION>
                   </SELECT>
                 </div>
+
+                <div class="form-group">
+                  <label>Ciudad</label>
+                  <input name="ciudad" type="text" class="form-control" required>
+                  <input type="hidden" name="ciudad1"  id="ciudad1"/>
+                </div>
                 
               </div>
               
             </form>
             <div class="modal-footer">
-              <button type="button" class="btn btn-info" onClick="Registrar_Avion(avi_id,accion); return false">
-                  <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Guardar
+              <button type="button" class="btn btn-info" onClick="Registrar_Escala(esc_id,codigoV,accion); return false">
+                  <span class="glyphicon glyphicon-save" aria-hidden="true" ></span> Guardar
               </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancelar</button>
             </div>
+          </div>
+        </div>
+      </div>
+
+   
+      <div class="modal fade" id="VerEscala" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+            
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <div class="modal-title" > Lista de Escalas</div>
+            </div>
+             <form role="form" action="" name="frmListaEscala">
+             <input type="hidden" name="codigoVuelo"  id="codigoVuelo" />
+            
+             <table class='table'>
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Fecha Salida</th>
+              <th>Fecha Llegada</th>
+              <th>Hora Salida</th>
+              <th>Hora Llegada</th>
+              <th>Estado</th>
+              <th>Ciudad</th>
+            </tr>
+          </thead>
+          <tbody  id="resultadoEscala">
+          </tbody>
+        </table>      
+      </div>
+    </form>
           </div>
         </div>
       </div>
@@ -267,23 +305,51 @@
     <script type="text/javascript">
     var accion;
     var vue_id;
-
-    function NuevaEscala(){
+    var esc_id;
+    var aer_id;
+    var codigoV;
+    function NuevaEscala(code){
       accion = 'N';
-      document.frmClase.tipo.value="";
-      document.frmClase.asientoInicio.value = "";
-      document.frmClase.asientoFin.value = "";
-      document.frmClase.estado.value = "";
-      document.frmClase.costo.value = "";
+      codigoV=code;
+      document.frmEscala.fllegada.value="";
+      document.frmEscala.fsalida.value="";
+      document.frmEscala.hllegada.value="";
+      document.frmEscala.hsalida.value="";
+      document.frmEscala.estado.value="";
+      document.frmEscala.ciudad.value="";
+      document.frmEscala.ciudad1.value="";
+
       $('#escalas').modal('show');
     }
 
+ /*     function EditarEscala(idescala, fechallegada,fechasalida,horallegada,horasalida, estado, ciudad){
+      accion = 'E';
+      esc_id = idescala;
+
+      document.frmEscala.fllegada.value=fechallegada;
+      document.frmEscala.fsalida.value=fechasalida;
+      document.frmEscala.hllegada.value=horallegada;
+      document.frmEscala.hsalida.value=horasalida;
+      document.frmEscala.estado.value=estado;
+
+      $('#escalas').modal('show');
+    }
+*/
     function VerEscala(codigo){
 
-      document.frmListaClase.codigoAvion.value=codigo;
+      var textoBusqueda = codigo;
 
-      $('#escalas').modal('show');
-    }
+        if (textoBusqueda != "") {
+            $.post("verEscalas.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+              $("#resultadoEscala").html(mensaje);
+            }); 
+        } else { 
+            $("#resultadoEscala").html("");
+      };
+
+      $('#VerEscala').modal('show');
+    };
+    
 
     function Nuevo(){
       accion = 'N';

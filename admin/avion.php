@@ -52,13 +52,7 @@
                 }
                 ?>
 
-                <td>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-info btn-xs" onclick="Editar('<?php print($row->avi_id); ?>','<?php print($row->avi_nombre); ?>','<?php print($row->avi_asientos); ?>','<?php print($row->avi_aerolinea);?>','<?php print($row->avi_estadoLog);?>','<?php print($nombre_aeropuero);?>','<?php print($row->aer_id);?>','<?php print($nombre_aeropuero);?>');">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
-                    </button>   
-                  </div>
-                </td>
+                
                 <td>
                   <div class="btn-group">
                     <button type="button" class="btn btn-info btn-xs">Clases</button>
@@ -70,6 +64,13 @@
                       <li class="divider"></li>
                       <li onclick="verclases('<?php print($row->avi_id); ?>');"><a >Ver Clases</a></li>
                     </ul>
+                  </div>
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-info btn-xs" onclick="Editar('<?php print($row->avi_id); ?>','<?php print($row->avi_nombre); ?>','<?php print($row->avi_asientos); ?>','<?php print($row->avi_aerolinea);?>','<?php print($row->avi_estadoLog);?>','<?php print($nombre_aeropuero);?>','<?php print($row->aer_id);?>','<?php print($nombre_aeropuero);?>');">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
+                    </button>   
                   </div>
                 </td>
               </tr>
@@ -277,6 +278,7 @@
       document.frmClase.asientoInicio.value = asientoInicio;
       document.frmClase.asientoFin.value = asientoFin;
       document.frmClase.estado.value = estado;
+      $('#clases').modal('show');
       $('#resultadoclases').modal("hidden");
     }
 
