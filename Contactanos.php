@@ -2,7 +2,7 @@
 <div class="main">
 	<div id="banner">
 		<div class="text1">
-			AIR-LINES<span>Viajes Internacinoales</span><p>En donde viajar es sinonimo de seguridad y conformidad.</p>
+			VUELA HOY<span>Viajes Internacinoales</span><p>En donde viajar es sinonimo de seguridad y conformidad.</p>
 		</div>
 	</div>
 </div><div class="ic">More Website Templates at TemplateMonster.com!</div>
