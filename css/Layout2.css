@@ -1,0 +1,178 @@
+/*Estilos de las estructuras o rejillas web...*/
+* {
+	margin:0;
+	padding:0;
+	outline:none;
+}
+body {
+	font:12px "Calibri", Arial, Helvetica, sans-serif;
+	color:#000;
+	background: url(/media/2542/fondo.jpg) center top no-repeat scroll;
+}
+/*FORMUYLARIO*/
+.formulario td.left {
+	width:400px;
+}
+div#contenedor, div#main {
+	-moz-border-radius:60px;
+	-webkit-border-radius: 60px;
+	border-radius: 60px;
+	behavior:url(border-radius.htc);
+}
+div#contenedor {
+	width:910px;
+	padding:10px;
+	background:url(../Images/back01.png);
+	margin:44px auto 98px auto;
+}
+div#main {
+	position:relative;
+	width:914px;
+	background:#fff;
+	padding:0 0 44px 0;
+}
+div#header {
+	position:relative;
+	width:100%;
+	height:214px;
+	
+}
+div#content {
+	position:relative;
+	width:878px;
+	margin:18px 0 0 18px;
+}
+div#content_top {
+	position:relative;
+}
+div#content_center {
+	position:relative;
+	margin-top:18px;
+}
+div#content_center td.center_left {
+	width:614px;
+}
+div#content_center td.center_left div.reservas {
+	position:relative;
+	padding:18px;
+        margin:0 0 0 30px;
+	background: #FFF;
+	border:1px solid #CCC;
+}
+iframe.formulario{
+        margin-left:18px;
+}
+div#content_center td.center_right {
+	width:266px;
+}
+div#content_center div.center_bottom {
+	position:relative;
+	width:100%;
+	float:left;
+	margin-top:18px;
+}
+div#footer {
+	position:relative;
+	width:100%;
+	margin-top:28px;
+}
+h1{
+        color:#1591CF;
+	font:22px "Calibri", Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	margin:10px 0 10px 0;
+}
+
+}
+div#radar{
+       display:block;
+       width:600px;
+       padding:-50px;
+       margin-top:-35px;
+}
+
+/*SLIDER 2*/
+
+
+div.banner_right1 {
+	width:488px;
+	height:254px;
+	position:relative;
+	background:#000;
+	overflow:hidden;
+}
+div.banner_right1 .imagen img {
+	position:absolute;
+}
+div.banner_right1 .imagen div.desc {
+	width:468px;
+	height:17px;
+	padding:15px;
+	background:url(../Images/back_transparent2.png);
+	position:absolute;
+	left:0;
+	bottom:10px;
+	z-index:2;
+	font:16px Arial, Helvetica, sans-serif;
+	color: #000;
+	font-weight:bold;
+
+}
+div.banner_right1 div.direccion {
+	display:none;
+}
+div.mini_images_img {
+	display:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

@@ -1,0 +1,407 @@
+/**ESTILOS DE LOS DIFERENTES MODULOS*/
+ul {
+	list-style:none;
+}
+img {
+	border:0;
+}
+/*BUSCADOR*/
+div#search {
+	width:170px;
+	height:27px;
+	position: absolute;
+	right:16px;
+	top:0;
+	margin:10px 0 0 0;
+}
+div#search input {
+	vertical-align: top;
+	border:0;
+        background:url(../Images/back04.png) no-repeat 0 0 transparent;
+        padding:5px 10px 0 10px;   
+	height:24px;
+	font:12px "Calibri", Arial, Helvetica, sans-serif;
+	font-weight:bolder;
+	color:#659ce0;
+        margin-left:10px;
+}
+div#search input.submit_search{
+	height: 15px;
+        margin-left: 118px;
+        margin-top: -28px;
+}
+/*CONTTENT LEFT*/
+div#content_center td.center_left div.reservas p {
+	font:12px "Calibri", Arial, Helvetica, sans-serif;
+	margin:10px 0 0 0;
+	font-weight: lighter;
+	text-align:justify;
+}
+div#content_center td.center_left div.reservas h1 {
+	font:22px "Trebuchet MS", Arial, Helvetica, sans-serif;
+	margin:10px 0 0 0;
+	font-weight: bolder;
+	color: #06F;
+}
+/*CONTENT TOP*/
+div#content_top div.banner_1 {
+	position:relative;
+	float:left;
+}
+div#content_top div.banner_2 {
+	position:relative;
+	float:right;
+}
+/*CONTENT CENTER*/	
+div#content_center td.center_left div.ofertas {
+	position:relative;
+	height:189px;
+	background: url(../Images/back06.png) repeat-x left top #CBCBCB;
+}
+div#content_center td.center_left div.ofertas p.titulo {
+	position:relative;
+	color:#82C0E4;
+	font:12px "Calibri", Arial, Helvetica, sans-serif;
+	font-weight:bolder;
+	padding:8px 22px 0 22px;
+}
+div#content_center td.center_left div.ofertas b {
+	color:#1591CF;
+	font:24px "Calibri", Arial, Helvetica, sans-serif;
+	font-weight: lighter;
+	display:block;
+}
+div#content_center td.center_left div.ofertas div.enlaces {
+	position:absolute;
+	right:0;
+	padding:0 22px 0 0;
+	z-index:1;
+}
+div#content_center td.center_left div.ofertas div.enlaces ul li {
+	position:relative;
+	float:left;
+	margin:0 15px 0 0;
+}
+div#content_center td.center_left div.ofertas div.enlaces ul li a {
+	font:11px "Calibri", Arial, Helvetica, sans-serif;
+	color:#82C0E4;
+	text-decoration:none;
+	font-weight:bolder;
+}
+div#content_center td.center_left div.ofertas div.enlaces ul li.ant a {
+	background:url(../Images/back10.png) left top no-repeat;
+	padding:0 0 0 15px;
+	display:block;
+}
+div#content_center td.center_left div.ofertas div.enlaces ul li.sig a {
+	background:url(../Images/back10.png) right top no-repeat;
+	padding:0 15px 0 0;
+	display:block
+}
+div#content_center td.center_left div.ofertas div.enlaces ul li a:hover {
+	color:#132f63;
+	text-decoration: underline;
+}
+div#content_center td.center_left div.ofertas .ofertas_slider {
+	position:relative;
+margin-top:10px;
+}
+div#content_center td.center_left div.ofertas .ofertas_slider ul {
+	height:100px;
+}
+div#content_center td.center_left div.ofertas .ofertas_slider ul li {
+	position:relative;
+	padding:0 0 0 10px;
+	float:left;
+	width:110px;
+}
+div#content_center td.center_left div.ofertas .ofertas_slider ul li.first {
+	margin:0 0 0 13px;
+}
+div#content_center td.center_left div.ofertas .ofertas_slider ul li b {
+	color:#1591CF;
+	font:9px "Calibri", Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	margin:10px 0 -5px 0;
+}
+div#content_center td.center_left div.ofertas .ofertas_slider ul li p {
+	position:relative;
+	color:#1591CF;
+	padding:0;
+	width:110px;
+	margin:-20px 0 0 0;
+}
+div#content_center td.center_left div.ofertas .ofertas_slider ul li p b {
+	position:relative;
+	font:22px "Calibri", Arial, Helvetica, sans-serif;
+	color:#1591CF;
+	width:10px;
+	float:left;
+	margin-top:20px;
+}
+div#content_center td.center_left div.ofertas .ofertas_slider ul li p span {
+	position:relative;
+	float:left;
+	font:55px "Calibri", Arial, Helvetica, sans-serif;
+	color:#1591CF;
+}
+div#content_center td.center_left div.ofertas .ofertas_slider ul li p strong {
+	position:relative;
+	float:left;
+	text-align:center;
+	font:10px "Calibri", Arial, Helvetica, sans-serif;
+	color:#1591CF;
+	margin:20px 0 0 0;
+	font-weight: lighter;
+}
+div#content_center td.center_left div.ofertas .ofertas_slider ul li strong.foot {
+	width:100px;
+	position: absolute;
+	font:8px "Calibri", Arial, Helvetica, sans-serif;
+	color:#2F4689;
+	text-align:center;
+	display:block;
+	left: 0px;
+	top: 65px;
+	word-spacing:1px;
+}
+div#content_center td.center_left div.noticias {
+	position:relative;
+	width:340px;
+	float:left;
+	margin-top:18px;
+}
+div#content_center td.center_left div.noticias ul li {
+	position:relative;
+	padding:7px;
+	background: #E7E7E7;
+}
+div#content_center td.center_left div.noticias ul li img {
+	border:3px solid #CFCFCF;
+}
+div#content_center td.center_left div.noticias ul li p {
+	position:relative;
+	
+	width:195px;
+	color:#1591CF;
+	font:10px "Calibri", Arial, Helvetica, sans-serif;
+	font-weight:lighter;
+}
+div#content_center td.center_left div.noticias ul li p span {
+	display:block;
+	text-align: justify;
+	width:180px;
+}
+div#content_center td.center_left div.noticias ul li p b {
+	position:relative;
+	color:#1591CF;
+	display:block;
+	font:18px "Calibri", Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+}
+div#content_center td.center_left div.noticias ul li p a {
+	position:relative;
+	color:#BD1E15;
+	font:10px Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	font-weight:bolder;
+}
+div#content_center td.center_left div.clima {
+	position:relative;
+	height:201px;
+	width:248px;
+	overflow:hidden;
+	background: #E7E7E7;
+	float:right;
+	margin-top:18px;
+}
+div#content_center td.center_left div.clima div.title {
+	position: absolute;
+	left:0;
+	bottom:-30;
+	height:29px;
+	background: url(../Images/imagenes/007.png) right top no-repeat;
+	width:100%;
+	z-index:10;
+}
+div#content_center td.center_left div.clima div.title b {
+	font:12px Arial, Helvetica, sans-serif;
+	color:#FFF;
+	line-height:29px;
+	margin:0 0 0 10px;
+}
+div#content_center td.center_right div.reservar {
+	position:relative;
+	width:100%;
+	
+}
+div#content_center div.center_bottom div.publicidad {
+	position:relative;
+}
+/*FOOTER*/
+div#footer div.menu_footer {
+	position: relative;
+	text-align:center;
+	color:#6AC2ED;
+	width:100%;
+}
+div#footer div.menu_footer b {
+	position: relative;
+	margin:0 0 0 100px;
+}
+div#footer div.menu_footer ul.menu {
+	margin:0 auto;
+	width:635px;
+}
+div#footer div.menu_footer ul.menu li {
+	position: relative;
+	float:left;
+}
+div#footer div.menu_footer ul.menu li a {
+	text-decoration:none;
+	color:#1591CF;
+	font:12px Arial, Helvetica, sans-serif;
+	font-weight: lighter;
+	padding: 0 8px;
+	border-right:1px solid #1591CF;
+}
+div#footer div.menu_footer ul.menu li.last a {
+	padding-right:0px;
+	border:0;
+}
+div#footer div.menu_footer ul.menu li a:hover {
+	text-decoration:underline;
+}
+div#footer div.menu_footer div.redes_sociales {
+	position: relative;
+	width:100px;
+	float:right;
+	margin:-18px 30px 0 0;
+}
+div#footer div.menu_footer div.redes_sociales  {
+	width:100px;
+}
+div#footer div.menu_footer div.redes_sociales  li {
+	position:relative;
+	margin-left:5px;
+	float:left;
+}
+
+/*SLIDER BANNER*/
+/*==================================*/
+div#slider {
+	width:380px;
+	height:254px;
+	position:relative;
+	background:#000;
+	overflow:hidden;
+	font-size:12px;
+	font-family: "Calibri", Arial, Helvetica, sans-serif;
+	color:#FFF;
+}
+div#slider div.fotos {
+	width:100%;
+	height:100%;
+	position:relative;
+}
+div#slider div.fotos b.fullscreen {
+	position:absolute;
+	background:white;
+	top:45%;
+	left:35%;
+	font:11px arial;
+	font-weight:bold;
+	border:1px solid black;
+	padding:5px 10px;
+	z-index:99;
+	color:#000;
+	display:none;
+}
+div#slider div.fotos div.title {
+	position:absolute;
+	background:#333;
+	padding:10px;
+	width:100%;
+	bottom:10px;
+	left:0;
+	color:#FFF;
+	z-index:1;
+}
+div#slider div.fotos div.image {
+	position:absolute;
+}
+div#slider div.galeria {
+	width:100%;
+	position:absolute;
+	z-index:9;
+	background: url(../Images/back_transparent.png);
+	padding:10px;
+	top:0px;
+	left:0;
+}
+div#slider div.galeria img.mini_flecha {
+	position:relative;
+	right:30px;
+	float:right;
+}
+div#slider div.galeria b.text {
+	display:block;
+}
+div#slider div.galeria div.mini_images {
+	width:260px;
+	position: relative;
+	margin:0 auto;
+	display:none;
+}
+div#slider div.galeria div.mini_images ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+div#slider div.galeria div.mini_images ul li {
+	width:80px;
+	height:40px;
+	float:left;
+	margin:5px 0 5px 0;
+	overflow:hidden;
+}
+div#slider div.galeria div.mini_images ul li.active {
+	width:80px;
+	height:40px;
+	float:left;
+	margin:5px 0 5px 0;
+	overflow:hidden;
+	opacity:1;
+	filter:alpha(opacity=100);
+}
+div#slider div.galeria div.mini_images ul li {
+	opacity:.5;
+	filter:alpha(opacity=50);
+}
+/*---------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
