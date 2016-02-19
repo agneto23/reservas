@@ -12,37 +12,47 @@ if(isset($_POST['txtusuario'])){
 	$nombre= $_POST["txtusuario"];
 	$pass= $_POST["txtpassword"];
 
-	$filas=0;
-	if($consulta = mysqli_query($conexion, "select * from cliente where cli_id = $nombre and cli_contrasena = $pass")){
-		$filas = mysqli_num_rows($consulta);
-	}
+	if($nombre='admin' and $pass='admin'){
+		session_start();
+		 			$_SESSION['admin']='0000000001';
+		 			echo "<script language='javascript'>alert('Bienvenido Administrador');</script>";
+		 			echo '
+					<meta http-equiv="refresh" content="1; url=../admin/index.php">';	
 
-	if ($filas === 0) {
-		echo "<script language='javascript'>alert('Cedula o contraseña incorrectos');</script>";
-		echo '
-				<meta http-equiv="refresh" content="1; url=../index.php">';		
-	} else {
-		while($resultados = mysqli_fetch_array($consulta)) {
-			$user = $resultados['cli_id'];
-			$pwd = $resultados['cli_contrasena'];
-			$c_name = $resultados['cli_nombre'];
-			$c_ape = $resultados['cli_apellido'];
+	}else{
 
-			$name = "Bienvenido ".$c_name." ".$c_ape;
- 		} 
+		$filas=0;
+		if($consulta = mysqli_query($conexion, "select * from cliente where cli_id = $nombre and cli_contrasena = $pass")){
+			$filas = mysqli_num_rows($consulta);
+		}
 
- 		if ($nombre==$user && $pass==$pwd) { 
-	 			session_start();
-	 			$_SESSION['admin']=$user;
-	 			echo "<script language='javascript'>alert('$name');</script>";
-	 			echo '
-				<meta http-equiv="refresh" content="1; url=../index.php">';		
-			}else{
-				echo "<meta http-equiv='Refresh' content='1;url=../index.php'>"; 
+		if ($filas === 0) {
+			echo "<script language='javascript'>alert('Cedula o contraseña incorrectos');</script>";
+			echo '
+					<meta http-equiv="refresh" content="1; url=../index.php">';		
+		} else {
+			while($resultados = mysqli_fetch_array($consulta)) {
+				$user = $resultados['cli_id'];
+				$pwd = $resultados['cli_contrasena'];
+				$c_name = $resultados['cli_nombre'];
+				$c_ape = $resultados['cli_apellido'];
 
-		};//Fin while $resultados
+				$name = "Bienvenido ".$c_name." ".$c_ape;
+	 		} 
 
-	}; //Fin else $filas
+	 		if ($nombre==$user && $pass==$pwd) { 
+		 			session_start();
+		 			$_SESSION['admin']=$user;
+		 			echo "<script language='javascript'>alert('$name');</script>";
+		 			echo '
+					<meta http-equiv="refresh" content="1; url=../index.php">';		
+				}else{
+					echo "<meta http-equiv='Refresh' content='1;url=../index.php'>"; 
+
+			};//Fin while $resultados
+
+		}; //Fin else $filas
+		}
 
 }else{
 	echo '
