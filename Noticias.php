@@ -25,16 +25,6 @@
 				<p>Se calcula que para fines de este año decenas de vuelos estarán cubriendo la ruta
 				<p>EU y Cuba firmarán acuerdo para reanudar vuelos regulares</p>
 				<p>Cuba y EU sostendrán segunda ronda de negociaciones comerciales.</p>
-				
-			</div>
-			<h2>Cuba y EU reanudan vuelos comerciales luego de 50 años</h2>
-			<div class="wrapper">
-				<figure class="left marg_right1"><img src="images/cuba.jpg" alt=""></figure>
-				<p>Se calcula que para fines de este año decenas de vuelos estarán cubriendo la ruta
-				<p>EU y Cuba firmarán acuerdo para reanudar vuelos regulares</p>
-				<p>Cuba y EU sostendrán segunda ronda de negociaciones comerciales.</p>
-				
-			</div>
 		</article>
 	</section>
 <!-- / content -->
