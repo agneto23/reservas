@@ -4,7 +4,7 @@
 <div class="panel panel-info col-lg-10 col-sm-10">
 
       <div class="starter-template">
-        <p class="lead"> Gestion de Avion</p>
+        <p class="lead"> Gestion de Vuelo</p>
         <button type="button" onclick="Nuevo();" class="btn btn-primary btn-lg">
           <span class="glyphicon glyphicon-plus"></span> Nuevo
         </button>

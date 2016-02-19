@@ -98,9 +98,9 @@
                     </div>
                     <ul class="nav nav-pills nav-stacked main-menu">
                         <li class="nav-header">Menu</li>
-                        <li><a class="ajax-link" href="index.html"><i class="glyphicon glyphicon-registration-mark"></i><span> Reservas</span></a>
+                        <li><a class="ajax-link" href="reserva.php"><i class="glyphicon glyphicon-registration-mark"></i><span> Reservas</span></a>
                         </li>
-                        <li><a class="ajax-link" href="ui.html"><i class="glyphicon glyphicon-user"></i><span> Clientes</span></a>
+                        <li><a class="ajax-link" href="cliente.php"><i class="glyphicon glyphicon-user"></i><span> Clientes</span></a>
                         </li>
                         <li><a class="ajax-link" href="vuelo.php"><i class="glyphicon glyphicon-send"></i><span> Vuelo</span></a>
                         </li>

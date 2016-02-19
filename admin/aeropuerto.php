@@ -38,7 +38,7 @@
                 <td><?php print($row->aer_estadoLog); ?></td>
                 <td>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-info" onclick="Editar('<?php print($row->aer_id); ?>','<?php print($row->aer_nombre); ?>','<?php print($row->aer_ciudad);?>','<?php print($row->aer_estadoLog);?>');">
+                    <button type="button" class="btn btn-info btn-xs" onclick="Editar('<?php print($row->aer_id); ?>','<?php print($row->aer_nombre); ?>','<?php print($row->aer_ciudad);?>','<?php print($row->aer_estadoLog);?>');">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Actualizar
                     </button> 
                   </div>
